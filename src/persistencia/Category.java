@@ -1,6 +1,7 @@
-package Persistencia;
+package persistencia;
 
 public class Category {
+    int id;
     String name;
     String subcategory;
     String classification;
@@ -8,10 +9,19 @@ public class Category {
     public Category() {
     }
 
-    public Category(String name, String subcategory, String classification) {
+    public Category(int id, String name, String subcategory, String classification) {
+        this.id = id;
         this.name = name;
         this.subcategory = subcategory;
         this.classification = classification;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -41,7 +51,8 @@ public class Category {
     @Override
     public String toString() {
         return "Category{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", subcategory='" + subcategory + '\'' +
                 ", classification='" + classification + '\'' +
                 '}';
