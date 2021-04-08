@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration SYSTEM "classpath://org/hibernate/hibernate-configuration-3.0.dtd">
+
+<!--MYSQL -->
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mariadb://localhost:3306/cashflow?zeroDateTimeBehavior=convertToNull&amp;serverTimezone=UTC </property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">Sword0Shield155</property>
+		<property name="hibernate.connection.pool_size">10</property>
+		<property name="show_sql">true</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+
+		<mapping resource="persistencia/User.hbm.xml" />
+
+
+
+	</session-factory>
+</hibernate-configuration>
+
+
+
+
