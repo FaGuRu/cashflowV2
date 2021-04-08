@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.login_controller">
+    <children>
+        <ImageView fitHeight="800.0" fitWidth="1100.0" nodeOrientation="RIGHT_TO_LEFT">
+            <image>
+                <Image url="@../assets/images/login_background.jpg" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="607.0" layoutX="349.0" layoutY="96.0" opacity="0.75" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="402.0">
+            <effect>
+                <DropShadow height="142.33" radius="74.43" spread="0.5" width="157.39">
+                    <color>
+                        <Color opacity="0.6000000238418579" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Rectangle>
+        <TextField fx:id="entrada_nombre_de_usuario" alignment="CENTER" focusTraversable="false" layoutX="427.0" layoutY="386.0" prefWidth="246.0" promptText="Nombre de usuario" style="-fx-text-fill: rgb(90,68,53); -fx-prompt-text-fill: rgb(90,68,53)rgb(90,68,53); -fx-background-color: 0;">
+            <font>
+                <Font name="SansSerif Regular" size="18.0" />
+            </font>
+        </TextField>
+        <PasswordField fx:id="entrada_contraseña" alignment="CENTER" focusTraversable="false" layoutX="427.0" layoutY="458.0" prefWidth="246.0" promptText="Contraseña" style="-fx-text-fill: rgb(90,68,53); -fx-prompt-text-fill: rgb(90,68,53)rgb(90,68,53); -fx-background-color: 0;">
+            <font>
+                <Font name="SansSerif Regular" size="18.0" />
+            </font>
+        </PasswordField>
+        <Line disable="true" fill="#ac937b" layoutX="427.0" layoutY="491.0" startX="246.0" stroke="#ac937b" strokeWidth="1.5" />
+        <Line disable="true" fill="#ac937b" layoutX="427.0" layoutY="419.0" startX="246.0" stroke="#ac937b" strokeWidth="1.5" />
+        <ImageView fitHeight="328.0" fitWidth="328.0" layoutX="386.0" layoutY="47.0">
+            <image>
+                <Image url="@../assets/images/logo_500x500.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="boton_ingresar" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="475.0" layoutY="568.0" mnemonicParsing="false" onMouseClicked="#ingresar_on_clicked" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: rgb(111,87,67);" text="Ingresar" textFill="WHITE">
+            <font>
+                <Font name="SansSerif Regular" size="18.0" />
+            </font>
+            <opaqueInsets>
+                <Insets right="10.0" />
+            </opaqueInsets>
+        </Button>
+    </children>
+</AnchorPane>
