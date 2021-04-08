@@ -25,7 +25,7 @@ public class login_controller {
     @FXML
     void ingresar_on_clicked(MouseEvent event) {
         if(auth()){
-            System.out.println("SI FUNCIONA GURU GURU JEJJE CHINGA TU MADRE");
+            System.out.println("SI FUNCIONA USUARIO Y PASSWORD CORRECTOS ");
         }else{
             System.out.println("SI FUNCIONAR PERO ESTA MAL LA CONTRASEÑA , EL USUARIO O NO FUNCIONA LA CONEXIÓN JEEJE XDDXDDXXD");
         }
