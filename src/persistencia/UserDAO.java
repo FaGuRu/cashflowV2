@@ -10,7 +10,7 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
-import Persistencia.User;
+import persistencia.User;
 
 public class UserDAO {
 
