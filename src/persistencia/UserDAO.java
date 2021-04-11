@@ -10,7 +10,7 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
-import Persistencia.User;
+import persistencia.User;
 
 public class UserDAO {
 
@@ -26,6 +26,7 @@ public class UserDAO {
             configuration.configure(manejador);
             serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
             factory = configuration.buildSessionFactory(serviceRegistry);
+            System.out.println("Exito");
         } catch (Throwable ex) {
             System.err.println("No se puede crear la Sesion manejador 1" + ex);
             throw new ExceptionInInitializerError(ex);
