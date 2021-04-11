@@ -44,7 +44,7 @@ public class UserDAO {
         User user;
         Session session=factory.openSession();
         Criteria cr= session.createCriteria(User.class);
-        cr.add(Restrictions.eq("user",userName));
+        cr.add(Restrictions.eq("username",userName));
         List list=cr.list();
         user=(User) list.get(0);
         return user;
