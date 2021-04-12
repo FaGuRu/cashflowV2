@@ -1,7 +1,6 @@
 package controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -24,7 +23,7 @@ public class login_controller {
     private TextField entrada_nombre_de_usuario;
 
     @FXML
-    private PasswordField entrada_contraseña;
+    private PasswordField entrada_contrasena;
 
     @FXML
     private Button boton_ingresar;
@@ -34,6 +33,7 @@ public class login_controller {
     void ingresar_on_clicked(MouseEvent event) throws IOException {
 
         if(auth()){
+
             System.out.println("Usuario existente");
             if(user.getRole().equals("admin")){
                 //Momentanea hasta que se haga la vista principal chida
@@ -48,6 +48,9 @@ public class login_controller {
                 alert.show();
             }
 
+
+            System.out.println("SI FUNCIONA USUARIO Y PASSWORD CORRECTOS ");
+
         }else{
             System.out.println("Usuario o contraseña inválida");
             Alert error_usuario = new Alert(Alert.AlertType.ERROR);
@@ -61,12 +64,10 @@ public class login_controller {
     public boolean auth(){
         dao = new UserDAO("hibernate.cfg.xml");
         String username = entrada_nombre_de_usuario.getText();
-        String password = entrada_contraseña.getText();
+        String password = entrada_contrasena.getText();
         user = dao.getUser(username);
         if (user != null) {
-            if(user.getPassword().equals(password)){
-                return true;
-            }
+            return user.getPassword().equals(password);
         }
 
         return false;

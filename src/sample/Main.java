@@ -7,15 +7,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
 
 import java.io.IOException;
 
 public class Main extends Application {
+
     private static Scene scene;
 
     private static Stage primaryStage;
 
     private static Stage popUp;
+
     @Override
     public void start(Stage _primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../views/login.fxml"));
