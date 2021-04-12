@@ -93,12 +93,13 @@
             <Line fx:id="line1" endX="66.0" fill="#392213" layoutX="139.0" layoutY="617.0" startX="-100.0" stroke="#392213" visible="false" />
             <Line fx:id="line2" endX="66.0" fill="#392213" layoutX="334.0" layoutY="617.0" startX="-100.0" stroke="#392213" visible="false" />
             <Line fx:id="line3" endX="66.0" fill="#392213" layoutX="533.0" layoutY="617.0" startX="-100.0" stroke="#392213" visible="false" />
-            <Button fx:id="actualizar_button" layoutX="637.0" layoutY="585.0" mnemonicParsing="false" onMouseClicked="#actualizar_OnMouseClicked" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: transparent;" textFill="WHITE" visible="false">
+            <Button fx:id="subir_button" layoutX="637.0" layoutY="585.0" mnemonicParsing="false" onMouseClicked="#subir_OnMouseClicked" prefHeight="33.0" prefWidth="125.0" style="-fx-background-color: decaba;" textFill="WHITE" visible="false">
                <font>
                   <Font name="Microsoft Sans Serif" size="18.0" />
                </font>
             </Button>
             <ComboBox fx:id="input_clasificacion" layoutX="441.0" layoutY="589.0" prefWidth="150.0" promptText="Clasificación" style="-fx-background-color: transparent;" visible="false" />
+            <Button fx:id="actualizar_button" contentDisplay="CENTER" layoutX="591.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#update_onMouseClicked" style="-fx-background-color: transparent;" />
          </children>
       </AnchorPane>
    </center>

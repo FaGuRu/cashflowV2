@@ -1,5 +1,6 @@
 package sample;
 
+import controllers.Category_controller;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,9 +23,13 @@ public class Main extends Application {
 
     private static Stage popUp;
 
+    private static Parent root;
+
+    private static FXMLLoader loader = new FXMLLoader();
+
     @Override
     public void start(Stage _primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../views/login.fxml"));
+        root = loader.load(getClass().getResource("../views/login.fxml"));
         primaryStage = _primaryStage;
         primaryStage.setTitle("CashFlow");
         scene = new Scene((root));
@@ -40,6 +45,10 @@ public class Main extends Application {
 
     }
 
+    public static FXMLLoader getLoader(){
+
+        return loader;
+    }
 
     public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../views/" + fxml + ".fxml"));
@@ -80,4 +89,3 @@ public class Main extends Application {
         launch(args);
     }
 }
-

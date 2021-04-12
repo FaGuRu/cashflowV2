@@ -2,12 +2,14 @@ package controllers;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import persistencia.Category;
+import persistencia.CategoryDAO;
 import sample.Main;
 
 import java.net.URL;
@@ -35,12 +37,16 @@ public class create_category_controller implements Initializable {
         String subcategoria = create_input_subcategoria.getText();
         String clasificacion = create_input_clasificacion.getValue();
         Category category = new Category(nombre, subcategoria, clasificacion);
-        System.out.println(category.toString());
+        CategoryDAO categoryDAO = new CategoryDAO("hibernatePostgre.cfg.xml");
+        //Category_controller category_controller = FXMLLoader.load();
+        categoryDAO.addCategory(category);
         Main.getPopUp().close();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         create_input_clasificacion.setItems(FXCollections.observableList(new ArrayList<String>(Arrays.asList("GAO","Ingreso","Costo-Venta"))));
+        //FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../views/" + fxml + ".fxml"));
+
     }
 }
