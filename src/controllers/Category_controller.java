@@ -17,6 +17,7 @@ import javafx.util.Callback;
 import org.hibernate.SessionFactory;
 import org.jboss.logging.Property;
 import persistencia.Category;
+import persistencia.CategoryDAO;
 import persistencia.User;
 import sample.Main;
 
@@ -29,6 +30,7 @@ import java.util.*;
 
 public class Category_controller implements Initializable {
 
+    CategoryDAO categoryDAO = new CategoryDAO("hibernatePostgre.cfg.xml");
 
     private Image add_img = new Image(new FileInputStream("src/assets/icons/add_category_icon.png"));
     private Category category_to_update;
@@ -103,6 +105,7 @@ public class Category_controller implements Initializable {
         category_to_update.setName(new_name);
         category_to_update.setClassification(new_classification);
         category_to_update.setSubcategory(new_subcategory);
+        categoryDAO.updateCategory(category_to_update);
         line1.setVisible(false);
         line2.setVisible(false);
         line3.setVisible(false);
@@ -135,13 +138,13 @@ public class Category_controller implements Initializable {
     }
 
     private void actualizarTabla(){
+        ObservableList listaCategorioas = FXCollections.observableList(categoryDAO.getCategory());
         content_table.getColumns().clear();
-
         column_name.setCellValueFactory(new PropertyValueFactory<>("name"));
         column_subcategoria.setCellValueFactory(new PropertyValueFactory<>("subcategory"));
         column_clasificacion.setCellValueFactory(new PropertyValueFactory<>("classification"));
         content_table.getColumns().addAll(column_name,column_subcategoria,column_clasificacion);
-        //content_table.setItems();
+        content_table.setItems(listaCategorioas);
         addEditButton();
         addDeleteButton();
     }
@@ -159,7 +162,7 @@ public class Category_controller implements Initializable {
                     {
                         btn.setOnAction((ActionEvent event) ->{
                             Category category = getTableView().getItems().get(getIndex());
-                            System.out.println("SELECCIONADO: " + category.toString());
+                            category_to_delete = category;
                         });
                         try {
                             btn.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/delete_icon.png"))));
@@ -167,6 +170,13 @@ public class Category_controller implements Initializable {
                             e.printStackTrace();
                         }
                         btn.setStyle("-fx-background-color: transparent");
+                        btn.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                            @Override
+                            public void handle(MouseEvent mouseEvent) {
+                                categoryDAO.deleteCategory(category_to_delete);
+                                actualizarTabla();
+                            }
+                        });
                     }
 
                     @Override
@@ -203,7 +213,7 @@ public class Category_controller implements Initializable {
                     {
                         btn.setOnAction((ActionEvent event) ->{
                             category_to_update = getTableView().getItems().get(getIndex());
-                            System.out.println("SELECCIONADO: " + category_to_update.toString());
+                            //System.out.println("SELECCIONADO: " + category_to_update.toString());
                             //QUE SE HACE CUANDO PRESIONAS EL BOTÓN
                         });
                         btn.setOnMouseClicked(new EventHandler<MouseEvent>() {
