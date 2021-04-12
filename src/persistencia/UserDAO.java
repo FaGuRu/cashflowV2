@@ -26,12 +26,14 @@ public class UserDAO {
             configuration.configure(manejador);
             serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
             factory = configuration.buildSessionFactory(serviceRegistry);
+            System.out.println("Exito");
         } catch (Throwable ex) {
             System.err.println("No se puede crear la Sesion manejador 1" + ex);
             throw new ExceptionInInitializerError(ex);
         }
 
     }
+
 
     public List getUsers(){
         Session session=factory.openSession();
@@ -44,7 +46,7 @@ public class UserDAO {
         User user;
         Session session=factory.openSession();
         Criteria cr= session.createCriteria(User.class);
-        cr.add(Restrictions.eq("user",userName));
+        cr.add(Restrictions.eq("username",userName));
         List list=cr.list();
         user=(User) list.get(0);
         return user;
