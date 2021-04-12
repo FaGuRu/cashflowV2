@@ -22,9 +22,11 @@ public class Main extends Application {
 
     private static Stage popUp;
 
+    private static Parent root;
+
     @Override
     public void start(Stage _primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../views/login.fxml"));
+        root = FXMLLoader.load(getClass().getResource("../views/login.fxml"));
         primaryStage = _primaryStage;
         primaryStage.setTitle("CashFlow");
         scene = new Scene((root));
