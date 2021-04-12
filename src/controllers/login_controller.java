@@ -15,7 +15,7 @@ import sample.Main;
 import java.io.IOException;
 
 
-public class Login_controller {
+public class login_controller {
 
     UserDAO dao;
     User user;
