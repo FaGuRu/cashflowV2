@@ -37,6 +37,9 @@ public class Category_controller implements Initializable {
     private Category category_to_delete;
 
     @FXML
+    private Button subir_button;
+
+    @FXML
     private TableView<Category> content_table;
 
     @FXML
@@ -98,7 +101,7 @@ public class Category_controller implements Initializable {
         Actualiza la tabla y regresa los botones a su condición inicial.
      */
     @FXML
-    void actualizar_OnMouseClicked(MouseEvent event) {
+    void subir_OnMouseClicked(MouseEvent event) {
         String new_name = input_nombre.getText();
         String new_subcategory = input_subcategoria.getText();
         String new_classification = input_clasificacion.getValue();
@@ -117,11 +120,20 @@ public class Category_controller implements Initializable {
         System.out.println(category_to_update.toString());
 
     }
+    @FXML
+    void update_onMouseClicked(MouseEvent event) {
+        actualizarTabla();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         agregar_button.setGraphic(new ImageView(add_img));
         agregar_button.getGraphic().autosize();
+        try {
+            actualizar_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets//icons/reload_icon.png"))));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         agregar_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -129,7 +141,7 @@ public class Category_controller implements Initializable {
             }
         });
         try {
-            actualizar_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/actualizar_icon.png"))));
+            subir_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/actualizar_icon.png"))));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -137,7 +149,7 @@ public class Category_controller implements Initializable {
         actualizarTabla();
     }
 
-    private void actualizarTabla(){
+    public  void actualizarTabla(){
         ObservableList listaCategorioas = FXCollections.observableList(categoryDAO.getCategory());
         content_table.getColumns().clear();
         column_name.setCellValueFactory(new PropertyValueFactory<>("name"));

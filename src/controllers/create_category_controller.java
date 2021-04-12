@@ -46,5 +46,7 @@ public class create_category_controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         create_input_clasificacion.setItems(FXCollections.observableList(new ArrayList<String>(Arrays.asList("GAO","Ingreso","Costo-Venta"))));
+        //FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../views/" + fxml + ".fxml"));
+
     }
 }
