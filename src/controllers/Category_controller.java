@@ -112,7 +112,7 @@ public class Category_controller implements Initializable {
         line1.setVisible(false);
         line2.setVisible(false);
         line3.setVisible(false);
-        actualizar_button.setVisible(false);
+        subir_button.setVisible(false);
         input_nombre.setVisible(false);
         input_subcategoria.setVisible(false);
         input_clasificacion.setVisible(false);
@@ -234,7 +234,7 @@ public class Category_controller implements Initializable {
                                 input_nombre.setVisible(true);
                                 input_clasificacion.setVisible(true);
                                 input_subcategoria.setVisible(true);
-                                actualizar_button.setVisible(true);
+                                subir_button.setVisible(true);
                                 input_nombre.setText(category_to_update.getName());
                                 input_subcategoria.setText(category_to_update.getSubcategory());
                                 line1.setVisible(true);
