@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -25,6 +26,7 @@ import javax.persistence.Table;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -51,7 +53,8 @@ public class Category_controller implements Initializable {
     @FXML
     private TableColumn<Category, ?> column_clasificacion;
 
-
+    @FXML
+    private Button flujo_de_dinero_button;
 
     @FXML
     private Text iniciales_text;
@@ -112,7 +115,7 @@ public class Category_controller implements Initializable {
         line1.setVisible(false);
         line2.setVisible(false);
         line3.setVisible(false);
-        actualizar_button.setVisible(false);
+        subir_button.setVisible(false);
         input_nombre.setVisible(false);
         input_subcategoria.setVisible(false);
         input_clasificacion.setVisible(false);
@@ -127,8 +130,17 @@ public class Category_controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //-------------------------------------------------------------------------------------------------------------------------------
+        // SE AGREGAN ICONOS Y ACCIONES A LOS BOTONES
+        //-------------------------------------------------------------------------------------------------------------------------------
         agregar_button.setGraphic(new ImageView(add_img));
         agregar_button.getGraphic().autosize();
+        try {
+            reportes_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/reports_icon.png"))));
+            flujo_de_dinero_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/cashflow_icon.png"))));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         try {
             actualizar_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets//icons/reload_icon.png"))));
         } catch (FileNotFoundException e) {
@@ -137,7 +149,7 @@ public class Category_controller implements Initializable {
         agregar_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                Main.popUp("create_category_pop_up", "CashFlow - Create Category");
+                Main.popUp("create_category_pop_up", "CashFlow - Crear categoría");
             }
         });
         try {
@@ -145,6 +157,23 @@ public class Category_controller implements Initializable {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        flujo_de_dinero_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    Main.setFXML("cashflow","CashFlow - Flujo de Efectivo");
+                    FXMLLoader loader = Main.getLoader();
+                    /*
+                    Cashflow_Controller controller = loader.getController();
+
+                    controller.setUserLogged(nombre_completo_text.getText(), iniciales_text.getText());
+                     */
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        //-------------------------------------------------------------------------------------------------------------------------------
         input_clasificacion.setItems(FXCollections.observableList(new ArrayList<String>(Arrays.asList("GAO","Ingreso","Costo-Venta"))));
         actualizarTabla();
     }
@@ -158,59 +187,7 @@ public class Category_controller implements Initializable {
         content_table.getColumns().addAll(column_name,column_subcategoria,column_clasificacion);
         content_table.setItems(listaCategorioas);
         addEditButton();
-        addDeleteButton();
     }
-    /*
-        Esta función se encarga de agregar a la tabla una columna más; dicha columna contiene un botón con un
-        manejador de eventos el cual seleccionar el objeto de esa misma fila para ser eliminado.
-     */
-    private void addDeleteButton(){
-        TableColumn<Category, Void> column_delete_button = new TableColumn("");
-        Callback<TableColumn<Category, Void>, TableCell<Category, Void>> cellFactory = new Callback<TableColumn<Category, Void>, TableCell<Category, Void>>() {
-            @Override
-            public TableCell<Category, Void> call(TableColumn<Category, Void> categoryVoidTableColumn) {
-                final TableCell<Category, Void> cell = new TableCell<Category, Void>(){
-                    private final Button btn = new Button("");
-                    {
-                        btn.setOnAction((ActionEvent event) ->{
-                            Category category = getTableView().getItems().get(getIndex());
-                            category_to_delete = category;
-                        });
-                        try {
-                            btn.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/delete_icon.png"))));
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        }
-                        btn.setStyle("-fx-background-color: transparent");
-                        btn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                            @Override
-                            public void handle(MouseEvent mouseEvent) {
-                                categoryDAO.deleteCategory(category_to_delete);
-                                actualizarTabla();
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void updateItem(Void item, boolean empty){
-                        super.updateItem(item, empty);
-                        if(empty){
-                            setGraphic(null);
-                        }else{
-                            setGraphic(btn);
-                        }
-                    }
-                };
-                return cell;
-            }
-        };
-        column_delete_button.setEditable(false);
-        column_delete_button.setReorderable(false);
-        column_delete_button.setResizable(false);
-        column_delete_button.setCellFactory(cellFactory);
-        content_table.getColumns().add(column_delete_button);
-    }
-
     /*
         Esta función se encarga de agregar una columna con un botón y un manejador de eventos para que cuando se de clic,
         el item seleccionado sea editado llamando a la funcióna actualizar()
@@ -234,7 +211,7 @@ public class Category_controller implements Initializable {
                                 input_nombre.setVisible(true);
                                 input_clasificacion.setVisible(true);
                                 input_subcategoria.setVisible(true);
-                                actualizar_button.setVisible(true);
+                                subir_button.setVisible(true);
                                 input_nombre.setText(category_to_update.getName());
                                 input_subcategoria.setText(category_to_update.getSubcategory());
                                 line1.setVisible(true);
@@ -267,5 +244,12 @@ public class Category_controller implements Initializable {
         column_edit_button.setReorderable(false);
         column_edit_button.setCellFactory(cellFactory);
         content_table.getColumns().add(column_edit_button);
+
+    }
+
+    public void setUserLogged(String name, String last_name){
+        nombre_completo_text.setText(name + " " + last_name);
+        iniciales_text.setText(String.valueOf(name.charAt(0)) + " " + last_name.charAt(0));
     }
 }
+

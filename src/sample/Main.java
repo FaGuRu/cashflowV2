@@ -1,18 +1,14 @@
 package sample;
 
-import controllers.Category_controller;
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -36,7 +32,10 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.centerOnScreen();
+        primaryStage.getIcons().add(new Image(new FileInputStream("src/assets/images/logo_sin_texto.png")));
         primaryStage.show();
+
+
     }
 
     public static void setFXML(String fxml, String title) throws IOException {
@@ -46,13 +45,12 @@ public class Main extends Application {
     }
 
     public static FXMLLoader getLoader(){
-
         return loader;
     }
 
     public static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("../views/" + fxml + ".fxml"));
-        return fxmlLoader.load();
+        loader = new FXMLLoader(Main.class.getResource("../views/" + fxml + ".fxml"));
+        return loader.load();
 
     }
 
@@ -78,7 +76,6 @@ public class Main extends Application {
         }
 
     }
-
     //used to close the popUp using Main.getPopUp().close();
 
     public static Stage getPopUp(){

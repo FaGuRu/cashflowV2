@@ -41,21 +41,21 @@
                        <Image url="@../assets/icons/tag_icon.png" />
                     </image>
             </ImageView>
-            <Button fx:id="reportes_button" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="37.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#reportes_onMouseClicked" prefHeight="50.0" prefWidth="132.0" style="-fx-text-fill: rgb(76,60,44); -fx-background-color: transparent;" text="Reportes" textAlignment="RIGHT">
+            <Button fx:id="reportes_button" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="88.0" mnemonicParsing="false" onMouseClicked="#reportes_onMouseClicked" prefHeight="50.0" prefWidth="132.0" style="-fx-text-fill: rgb(76,60,44); -fx-background-color: transparent;" text="Reportes" textAlignment="RIGHT">
                <font>
                   <Font name="Microsoft Sans Serif" size="18.0" />
                </font></Button>
+            <Button fx:id="flujo_de_dinero_button" alignment="CENTER_RIGHT" layoutX="9.0" layoutY="138.0" mnemonicParsing="false" onMouseClicked="#reportes_onMouseClicked" prefHeight="50.0" prefWidth="178.0" style="-fx-text-fill: rgb(76,60,44); -fx-background-color: transparent;" text="Flujo de dinero" textAlignment="RIGHT">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="18.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </left>
    <top>
       <AnchorPane prefHeight="86.0" prefWidth="1100.0" style="-fx-background-color: #392213;" BorderPane.alignment="CENTER">
          <children>
-            <Text fx:id="iniciales_text" layoutX="885.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0">
-               <font>
-                  <Font name="SansSerif Regular" size="18.0" />
-               </font>
-            </Text>
             <Text fx:id="nombre_completo_text" fill="#ffffff00" layoutX="943.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: FFFFFF;">
                <font>
                   <Font name="SansSerif Regular" size="18.0" />
@@ -67,6 +67,11 @@
                </image>
             </ImageView>
             <Circle fill="#decaba" layoutX="899.0" layoutY="46.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text fx:id="iniciales_text" layoutX="885.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font name="SansSerif Regular" size="18.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </top>
