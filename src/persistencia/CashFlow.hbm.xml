@@ -11,11 +11,14 @@
             </generator>
         </id>
 
-        <property name="name" column="name"/>
-        <property name="subcategory" column="subcategory"/>
-        <property name="classification" column="classification"/>
+        <property name="type" column="type"/>
+        <property name="concept" column="concept"/>
+        <property name="amount" column="amount"/>
+        <property name="date" column="date"/>
 
+        <many-to-one name="category" class="Category" fetch="select">
+            <column name="category" not-null="true" />
+        </many-to-one>
 
     </class>
 </hibernate-mapping>
-
