@@ -75,6 +75,6 @@ public class CategoryDAO {
         }finally {
             session.close();
         }
-    }
+    } 
 
 }
