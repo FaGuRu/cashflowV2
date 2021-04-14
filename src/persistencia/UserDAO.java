@@ -34,6 +34,7 @@ public class UserDAO {
 
     }
 
+
     public List getUsers(){
         Session session=factory.openSession();
         Criteria cr= session.createCriteria(User.class);

@@ -15,6 +15,11 @@ public class Category {
         this.subcategory = subcategory;
         this.classification = classification;
     }
+    public Category(String name, String subcategory, String classification) {
+        this.name = name;
+        this.subcategory = subcategory;
+        this.classification = classification;
+    }
 
     public int getId() {
         return id;
