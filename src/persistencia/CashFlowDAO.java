@@ -39,7 +39,7 @@ public class CashFlowDAO {
         session.close();
     }
 
-    public List getCashFlowH(){
+    public List getCashFlow(){
         Session session=factory.openSession();
         Criteria cr= session.createCriteria(CashFlow.class);
         List empList1= cr.list();
