@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="persistencia">
-    <class name="CashFlow" table="CashFlow">
+    <class name="CashFlow" table="cashflow">
 
         <id name="id"
             column="id"
@@ -17,7 +17,7 @@
         <property name="date" column="date"/>
 
         <many-to-one name="category" class="Category" fetch="select">
-            <column name="category" not-null="true" />
+            <column name="id" not-null="true" />
         </many-to-one>
 
     </class>
