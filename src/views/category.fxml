@@ -26,26 +26,21 @@
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
             </Text>
-            <Rectangle fill="#766559" height="40.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0">
+            <Rectangle fill="#766559" height="50.0" layoutY="138.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0">
                <effect>
                   <Reflection bottomOpacity="0.22" fraction="0.14" topOffset="-1.0" topOpacity="0.76" />
                </effect>
             </Rectangle>
-            <Text fill="WHITE" layoutX="79.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorías">
-               <font>
-                  <Font name="SansSerif Regular" size="18.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="33.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                       <Image url="@../assets/icons/tag_icon.png" />
-                    </image>
-            </ImageView>
             <Button fx:id="reportes_button" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="88.0" mnemonicParsing="false" onMouseClicked="#reportes_onMouseClicked" prefHeight="50.0" prefWidth="132.0" style="-fx-text-fill: rgb(76,60,44); -fx-background-color: transparent;" text="Reportes" textAlignment="RIGHT" textFill="#4c3c2c">
                <font>
                   <Font name="SansSerif Regular" size="18.0" />
                </font></Button>
-            <Button fx:id="flujo_de_dinero_button" alignment="CENTER_RIGHT" layoutX="9.0" layoutY="138.0" mnemonicParsing="false" onMouseClicked="#reportes_onMouseClicked" prefHeight="50.0" prefWidth="178.0" style="-fx-text-fill: rgb(76,60,44); -fx-background-color: transparent;" text="Flujo de dinero" textAlignment="RIGHT" textFill="#4c3c2c">
+            <Button fx:id="flujo_de_dinero_button" alignment="CENTER_RIGHT" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#reportes_onMouseClicked" prefHeight="50.0" prefWidth="178.0" style="-fx-text-fill: rgb(76,60,44); -fx-background-color: transparent;" text="Flujo de dinero" textAlignment="RIGHT" textFill="#4c3c2c">
+               <font>
+                  <Font name="SansSerif Regular" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="categorias_button" alignment="CENTER_RIGHT" layoutX="16.0" layoutY="138.0" mnemonicParsing="false" onMouseClicked="#reportes_onMouseClicked" prefHeight="50.0" prefWidth="165.0" style="-fx-text-fill: white; -fx-background-color: transparent;" text="Categorías" textAlignment="RIGHT" textFill="WHITE">
                <font>
                   <Font name="SansSerif Regular" size="18.0" />
                </font>
@@ -78,11 +73,11 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="content_table" cache="true" fixedCellSize="0.0" focusTraversable="false" layoutX="27.0" layoutY="81.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="422.0" prefWidth="786.0" stylesheets="@../assets/styles/tabla_categorias.css" AnchorPane.bottomAnchor="211.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="87.0" AnchorPane.topAnchor="81.0">
+            <TableView fx:id="content_table" cache="true" fixedCellSize="0.0" focusTraversable="false" layoutX="28.0" layoutY="81.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="422.0" prefWidth="695.0" stylesheets="@../assets/styles/tabla_categorias.css" AnchorPane.bottomAnchor="211.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="177.0" AnchorPane.topAnchor="81.0">
                <columns>
-                  <TableColumn fx:id="column_name" editable="false" prefWidth="190.0" sortable="false" style="-fx-font-size: 14;" text="Nombre" />
-                  <TableColumn fx:id="column_subcategoria" editable="false" prefWidth="215.0" sortable="false" style="-fx-font-size: 14;" text="Subcategoría" />
-                  <TableColumn fx:id="column_clasificacion" editable="false" minWidth="0.0" prefWidth="204.0" sortable="false" style="-fx-font-size: 14;" text="Clasificación" />
+                  <TableColumn fx:id="column_name" editable="false" prefWidth="190.0" sortable="false" style="-fx-font-size: 12;" text="Nombre" />
+                  <TableColumn fx:id="column_subcategoria" editable="false" prefWidth="215.0" sortable="false" style="-fx-font-size: 12;" text="Subcategoría" />
+                  <TableColumn fx:id="column_clasificacion" editable="false" minWidth="0.0" prefWidth="204.0" sortable="false" style="-fx-font-size: 12;" text="Clasificación" />
                </columns>
                <opaqueInsets>
                   <Insets />

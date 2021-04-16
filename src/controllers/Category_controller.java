@@ -32,8 +32,9 @@ import java.util.*;
 
 public class Category_controller implements Initializable {
 
-    CategoryDAO categoryDAO = new CategoryDAO("hibernatePostgre.cfg.xml");
-
+    private CategoryDAO categoryDAO = new CategoryDAO("hibernatePostgre.cfg.xml");
+    private String name;
+    private String last_name;
     private Image add_img = new Image(new FileInputStream("src/assets/icons/add_category_icon.png"));
     private Category category_to_update;
     private Category category_to_delete;
@@ -99,7 +100,8 @@ public class Category_controller implements Initializable {
 
     @FXML
     private Line line3;
-
+    @FXML
+    private Button categorias_button;
     /*
         Actualiza la tabla y regresa los botones a su condición inicial.
      */
@@ -154,6 +156,7 @@ public class Category_controller implements Initializable {
         });
         try {
             subir_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/actualizar_icon.png"))));
+            categorias_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/tag_icon.png"))));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -163,11 +166,8 @@ public class Category_controller implements Initializable {
                 try {
                     Main.setFXML("cashflow","CashFlow - Flujo de Efectivo");
                     FXMLLoader loader = Main.getLoader();
-                    /*
                     Cashflow_Controller controller = loader.getController();
-
-                    controller.setUserLogged(nombre_completo_text.getText(), iniciales_text.getText());
-                     */
+                    controller.setUserLogged(name, last_name);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -248,8 +248,10 @@ public class Category_controller implements Initializable {
     }
 
     public void setUserLogged(String name, String last_name){
-        nombre_completo_text.setText(name + " " + last_name);
-        iniciales_text.setText(String.valueOf(name.charAt(0)) + " " + last_name.charAt(0));
+        this.name = name;
+        this.last_name = last_name;
+        nombre_completo_text.setText(this.name + " " + this.last_name);
+        iniciales_text.setText(String.valueOf(this.name.charAt(0)) + " " + this.last_name.charAt(0));
     }
 }
 
