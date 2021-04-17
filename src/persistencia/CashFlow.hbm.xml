@@ -16,8 +16,8 @@
         <property name="amount" column="amount"/>
         <property name="date" column="date"/>
 
-        <many-to-one name="category" class="Category" fetch="select">
-            <column name="id" not-null="true" />
+        <many-to-one name="Category"  fetch="select">
+            <column name="category" not-null="true"/>
         </many-to-one>
 
     </class>

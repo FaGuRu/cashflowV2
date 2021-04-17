@@ -1,6 +1,7 @@
 package controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -37,9 +38,11 @@ public class login_controller {
             System.out.println("Usuario existente");
             if(user.getRole().equals("admin")){
                 //Momentanea hasta que se haga la vista principal chida
-
-                Main.setFXML("category","CashFlow - Categorías");
+                Main.setFXML("Cashflow", "CashFlow - Categorías");
                 //Obtiene el controller de la vista de categorias para darle el usuario que se loggeo jeje
+                FXMLLoader loader = Main.getLoader();
+                Cashflow_Controller controller = loader.getController();
+                controller.setUserLogged(user.getName(), user.getLast_name());
 
 
             }else{

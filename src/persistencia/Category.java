@@ -55,11 +55,6 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", subcategory='" + subcategory + '\'' +
-                ", classification='" + classification + '\'' +
-                '}';
+        return name;
     }
 }

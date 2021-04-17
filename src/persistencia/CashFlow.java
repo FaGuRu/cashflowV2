@@ -1,6 +1,8 @@
 package persistencia;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
+
 
 public class CashFlow {
     int id;
@@ -8,18 +10,26 @@ public class CashFlow {
     String concept;
     float amount;
     Date date;
-    int category;
+    Category category;
 
-    public CashFlow() {
-    }
-
-    public CashFlow(int id, String type, String concept, float amount, Date date, int category) {
+    public CashFlow(int id, String type, String concept, float amount, Date date, Category category) {
         this.id = id;
         this.type = type;
         this.concept = concept;
         this.amount = amount;
         this.date = date;
         this.category = category;
+    }
+
+    public CashFlow(String type, String concept, float amount, Date date, Category category) {
+        this.type = type;
+        this.concept = concept;
+        this.amount = amount;
+        this.date = date;
+        this.category = category;
+    }
+
+    public CashFlow() {
     }
 
     public int getId() {
@@ -62,11 +72,11 @@ public class CashFlow {
         this.date = date;
     }
 
-    public int getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
