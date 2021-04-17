@@ -29,12 +29,12 @@
                 </DropShadow>
             </effect>
         </Rectangle>
-        <TextField fx:id="entrada_nombre_de_usuario" alignment="CENTER" focusTraversable="false" layoutX="427.0" layoutY="386.0" prefWidth="246.0" promptText="Nombre de usuario" style="-fx-text-fill: rgb(90,68,53); -fx-prompt-text-fill: rgb(90,68,53)rgb(90,68,53); -fx-background-color: 0;">
+        <TextField fx:id="entrada_nombre_de_usuario" alignment="CENTER" layoutX="427.0" layoutY="386.0" prefWidth="246.0" promptText="Nombre de usuario" style="-fx-text-fill: rgb(90,68,53); -fx-prompt-text-fill: rgb(90,68,53)rgb(90,68,53); -fx-background-color: 0;">
             <font>
                 <Font name="SansSerif Regular" size="18.0" />
             </font>
         </TextField>
-        <PasswordField fx:id="entrada_contrasena" alignment="CENTER" focusTraversable="false" layoutX="427.0" layoutY="458.0" prefWidth="246.0" promptText="Contraseña" style="-fx-text-fill: rgb(90,68,53); -fx-prompt-text-fill: rgb(90,68,53)rgb(90,68,53); -fx-background-color: 0;">
+        <PasswordField fx:id="entrada_contrasena" alignment="CENTER" layoutX="427.0" layoutY="458.0" prefWidth="246.0" promptText="Contraseña" style="-fx-text-fill: rgb(90,68,53); -fx-prompt-text-fill: rgb(90,68,53)rgb(90,68,53); -fx-background-color: 0;">
             <font>
                 <Font name="SansSerif Regular" size="18.0" />
             </font>
@@ -46,7 +46,7 @@
                 <Image url="@../assets/images/logo_500x500.png" />
             </image>
         </ImageView>
-        <Button fx:id="boton_ingresar" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="475.0" layoutY="568.0" mnemonicParsing="false" onMouseClicked="#ingresar_on_clicked" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: rgb(111,87,67);" text="Ingresar" textFill="WHITE">
+        <Button fx:id="boton_ingresar" alignment="CENTER" contentDisplay="CENTER" layoutX="475.0" layoutY="568.0" mnemonicParsing="false" onMouseClicked="#ingresar_on_clicked" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: rgb(111,87,67);" text="Ingresar" textFill="WHITE">
             <font>
                 <Font name="SansSerif Regular" size="18.0" />
             </font>
