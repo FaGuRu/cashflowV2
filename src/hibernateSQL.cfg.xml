@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration SYSTEM "classpath://org/hibernate/hibernate-configuration-3.0.dtd"> <!--MYSQL -->
+<hibernate-configuration> <session-factory> <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+	<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433; database=cashflow </property>
+	<property name="hibernate.connection.username">sa</property>
+	<property name="hibernate.connection.password">Sword0Shield155</property>
+	<property name="hibernate.connection.pool_size">10</property>
+	<property name="show_sql">true</property>
+	<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+	<property name="hibernate.current_session_context_class">thread</property>
+	<mapping resource="persistencia/Record.hbm.xml" />
+</session-factory> </hibernate-configuration>
