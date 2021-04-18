@@ -6,15 +6,23 @@ public class Record {
     int id;
     String type;
     int week_num;
-    Date month;
+    java.sql.Date month;
     String company_name;
     float amount;
 
     public Record() {
     }
 
-    public Record(int id, String type, int week_num, Date month, String company_name, float amount) {
+    public Record(int id, String type, int week_num, java.sql.Date month, String company_name, float amount) {
         this.id = id;
+        this.type = type;
+        this.week_num = week_num;
+        this.month = month;
+        this.company_name = company_name;
+        this.amount = amount;
+    }
+
+    public Record(String type, int week_num, java.sql.Date month, String company_name, float amount) {
         this.type = type;
         this.week_num = week_num;
         this.month = month;
@@ -46,11 +54,11 @@ public class Record {
         this.week_num = week_num;
     }
 
-    public Date getMonth() {
+    public java.sql.Date getMonth() {
         return month;
     }
 
-    public void setMonth(Date month) {
+    public void setMonth(java.sql.Date month) {
         this.month = month;
     }
 

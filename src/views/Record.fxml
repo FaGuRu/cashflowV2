@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Record_controller">
+    <top>
+        <AnchorPane prefHeight="86.0" prefWidth="1100.0" style="-fx-background-color: #392213;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="83.0" fitWidth="139.0" layoutX="32.0">
+                    <image>
+                        <Image url="@../assets/images/logo_sin_texto.png" />
+                    </image>
+                </ImageView>
+                <Circle fill="#decaba" layoutX="899.0" layoutY="46.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                <Text fx:id="inciales_text" layoutX="887.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                    <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                    </font></Text>
+                <Text fx:id="nombre_completo_text" fill="WHITE" layoutX="943.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                    <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </top>
+    <left>
+        <AnchorPane prefHeight="713.0" prefWidth="200.0" style="-fx-background-color: decaba;" BorderPane.alignment="CENTER">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#766559" height="50.0" layoutY="87.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0">
+                    <effect>
+                        <Reflection bottomOpacity="0.22" fraction="0.14" topOffset="-1.0" topOpacity="0.76" />
+                    </effect>
+                </Rectangle>
+                <Button fx:id="categorias_button" alignment="CENTER_RIGHT" layoutX="21.0" layoutY="138.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-color: transparent;" text="Categorías" textFill="#4c3c2c">
+                    <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                    </font>
+                </Button>
+                <Button fx:id="reportes_button" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="88.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="132.0" style="-fx-background-color: transparent;" text="Reportes" textFill="WHITE">
+                    <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                    </font>
+                </Button>
+                <Button fx:id="cashflow_button" alignment="CENTER_RIGHT" focusTraversable="false" layoutY="32.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="178.0" style="-fx-background-color: transparent;" text="Flujo de dinero" textFill="#4c3c2c">
+                    <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                    </font>
+                </Button>
+                <Text fill="#756559" layoutX="5.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administración">
+                    <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Line endX="-71.0" fill="#392213" layoutX="452.0" layoutY="312.0" startX="-100.0" stroke="#392213" />
+            <Line endX="97.0" fill="#392213" layoutX="452.0" layoutY="347.0" startX="-100.0" stroke="#392213" />
+            <Line endX="97.0" fill="#392213" layoutX="452.0" layoutY="388.0" startX="-100.0" stroke="#392213" />
+            <Line endX="-71.0" fill="#392213" layoutX="452.0" layoutY="501.0" startX="-100.0" stroke="#392213" />
+            <Line endX="97.0" fill="#392213" layoutX="452.0" layoutY="536.0" startX="-100.0" stroke="#392213" />
+            <Line endX="97.0" fill="#392213" layoutX="452.0" layoutY="577.0" startX="-100.0" stroke="#392213" />
+            <Line endX="-71.0" fill="#392213" layoutX="452.0" layoutY="118.0" startX="-100.0" stroke="#392213" />
+            <Line endX="97.0" fill="#392213" layoutX="452.0" layoutY="153.0" startX="-100.0" stroke="#392213" />
+            <Line endX="97.0" fill="#392213" layoutX="452.0" layoutY="194.0" startX="-100.0" stroke="#392213" />
+            <Button fx:id="guardar_por_cobrar_button" layoutX="489.0" layoutY="199.0" mnemonicParsing="false" onMouseClicked="#por_cobrar_OnMouseClicked" style="-fx-background-color: #9C846C;" text="Guardar" textFill="WHITE" />
+            <Button fx:id="guardar_por_pagar_button" layoutX="490.0" layoutY="393.0" mnemonicParsing="false" onMouseClicked="#por_pagar_OnMouseClicked" style="-fx-background-color: #9C846C;" text="Guardar" textFill="WHITE" />
+            <Button fx:id="guardar_baco" layoutX="489.0" layoutY="582.0" mnemonicParsing="false" onMouseClicked="#bancos_OnMouseClicked" style="-fx-background-color: #9C846C;" text="Guardar" textFill="WHITE" />
+            <Text fill="#766559" layoutX="258.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cuentas por cobrar">
+               <font>
+                  <Font name="SansSerif Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#4c3c2c" layoutX="350.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cuentas por pagar">
+               <font>
+                  <Font name="SansSerif Regular" size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#4c3c2c" layoutX="350.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bancos">
+               <font>
+                  <Font name="SansSerif Regular" size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#4c3c2c" layoutX="260.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. Semana:">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#4c3c2c" layoutX="255.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Razón Social:">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#4c3c2c" layoutX="286.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monto: $">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#4c3c2c" layoutX="261.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. Semana:">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#4c3c2c" layoutX="256.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Razón Social:">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#4c3c2c" layoutX="287.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monto: $">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#4c3c2c" layoutX="261.0" layoutY="493.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No. Semana:">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#4c3c2c" layoutX="256.0" layoutY="529.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Razón Social:">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#4c3c2c" layoutX="287.0" layoutY="571.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monto: $">
+               <font>
+                  <Font name="SansSerif Regular" size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="n_semana_por_pagar" layoutX="351.0" layoutY="286.0" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: transparent;" />
+            <TextField fx:id="razon_social_por_pagar" layoutX="351.0" layoutY="322.0" prefHeight="25.0" prefWidth="198.0" style="-fx-background-color: transparent;" />
+            <TextField fx:id="monto_por_pagar" layoutX="350.0" layoutY="363.0" prefHeight="25.0" prefWidth="199.0" style="-fx-background-color: transparent;" />
+            <TextField fx:id="n_semana_bancos" layoutX="351.0" layoutY="475.0" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: transparent;" />
+            <TextField fx:id="razon_social_bancos" layoutX="351.0" layoutY="511.0" prefHeight="25.0" prefWidth="198.0" style="-fx-background-color: transparent;" />
+            <TextField fx:id="monto_bancos" layoutX="350.0" layoutY="552.0" prefHeight="25.0" prefWidth="199.0" style="-fx-background-color: transparent;" />
+            <TextField fx:id="n_semana_por_cobrar" layoutX="351.0" layoutY="92.0" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: transparent;" />
+            <TextField fx:id="razon_social_por_cobrar" layoutX="351.0" layoutY="128.0" prefHeight="25.0" prefWidth="198.0" style="-fx-background-color: transparent;" />
+            <TextField fx:id="monto_por_cobrar" layoutX="350.0" layoutY="169.0" prefHeight="25.0" prefWidth="199.0" style="-fx-background-color: transparent;" />
+         </children></AnchorPane>
+    </center>
+</BorderPane>

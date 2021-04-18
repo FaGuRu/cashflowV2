@@ -100,6 +100,20 @@ public class Cashflow_Controller implements Initializable {
             List<Category> lista_categorias = categoryDAO.getCategory();
             ObservableList<Category> lista_observable = FXCollections.observableList(lista_categorias);
             menu_categorias.setItems(lista_observable);
+            reportes_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    try {
+                        Main.setFXML("Record", "CashFlow - Indicadores de dinero");
+                        FXMLLoader loader = Main.getLoader();
+                        Record_controller controller = loader.getController();
+                        controller.setUserLogged(name, last_name);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            });
             check_box_entrada.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
