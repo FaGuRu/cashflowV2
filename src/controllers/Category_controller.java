@@ -172,6 +172,21 @@ public class Category_controller implements Initializable {
                     e.printStackTrace();
                 }
             }
+
+        });
+        reportes_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    Main.setFXML("Record", "CashFlow - Indicadores de dinero");
+                    FXMLLoader loader = Main.getLoader();
+                    Record_controller controller = loader.getController();
+                    controller.setUserLogged(name, last_name);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
         });
         //-------------------------------------------------------------------------------------------------------------------------------
         input_clasificacion.setItems(FXCollections.observableList(new ArrayList<String>(Arrays.asList("GAO","Ingreso","Costo-Venta"))));
@@ -251,7 +266,7 @@ public class Category_controller implements Initializable {
         this.name = name;
         this.last_name = last_name;
         nombre_completo_text.setText(this.name + " " + this.last_name);
-        iniciales_text.setText(String.valueOf(this.name.charAt(0)) + " " + this.last_name.charAt(0));
+        iniciales_text.setText(String.valueOf(this.name.charAt(0)) + this.last_name.charAt(0));
     }
 }
 
