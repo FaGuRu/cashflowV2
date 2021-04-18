@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import persistencia.Record;
+import persistencia.RecordDAO;
 import sample.Main;
 
 import java.io.FileInputStream;
@@ -81,26 +82,35 @@ public class Record_controller implements Initializable {
 
     @FXML
     void bancos_OnMouseClicked(MouseEvent event) {
+        RecordDAO dao = new RecordDAO("hibernateSQL.cfg.xml");
         int num_semana = Integer.valueOf(n_semana_bancos.getText());
         String razon_social = razon_social_bancos.getText();
         int cantidad = Integer.valueOf(monto_bancos.getText());
         Date date = Date.valueOf(String.valueOf(LocalDate.now()));
-
         Record record = new Record();
+        dao.addRecord(record);
     }
 
     @FXML
     void por_cobrar_OnMouseClicked(MouseEvent event) {
+        RecordDAO dao = new RecordDAO("hibernateSQL.cfg.xml");
         int num_semana = Integer.valueOf(n_semana_por_cobrar.getText());
         String razon_social = razon_social_por_cobrar.getText();
         int cantidad = Integer.valueOf(monto_por_cobrar.getText());
+        Date date = Date.valueOf(String.valueOf(LocalDate.now()));
+        Record record = new Record();
+        dao.addRecord(record);
     }
 
     @FXML
     void por_pagar_OnMouseClicked(MouseEvent event) {
+        RecordDAO dao = new RecordDAO("hibernateSQL.cfg.xml");
         int num_semana = Integer.valueOf(n_semana_por_pagar.getText());
         String razon_social = razon_social_por_pagar.getText();
         int cantidad = Integer.valueOf(monto_por_pagar.getText());
+        Date date = Date.valueOf(String.valueOf(LocalDate.now()));
+        Record record = new Record();
+        dao.addRecord(record);
 
     }
     @Override
