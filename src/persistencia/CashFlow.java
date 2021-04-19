@@ -2,6 +2,7 @@ package persistencia;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Calendar;
 
 
 public class CashFlow {
@@ -11,15 +12,8 @@ public class CashFlow {
     float amount;
     Date date;
     Category category;
+    int weekNumber;
 
-    public CashFlow(int id, String type, String concept, float amount, Date date, Category category) {
-        this.id = id;
-        this.type = type;
-        this.concept = concept;
-        this.amount = amount;
-        this.date = date;
-        this.category = category;
-    }
 
     public CashFlow(String type, String concept, float amount, Date date, Category category) {
         this.type = type;
@@ -27,6 +21,9 @@ public class CashFlow {
         this.amount = amount;
         this.date = date;
         this.category = category;
+        Calendar calendario=Calendar.getInstance();
+        calendario.setTime(date);
+        weekNumber= calendario.WEEK_OF_MONTH;
     }
 
     public CashFlow() {
@@ -80,6 +77,14 @@ public class CashFlow {
         this.category = category;
     }
 
+    public int getWeekNumber() {
+        return weekNumber;
+    }
+
+    public void setWeekNumber(int weekNumber) {
+        this.weekNumber = weekNumber;
+    }
+
     @Override
     public String toString() {
         return "CashFlow{" +
@@ -89,6 +94,9 @@ public class CashFlow {
                 ", amount=" + amount +
                 ", date=" + date +
                 ", category=" + category +
+                ", weekNumber=" + weekNumber +
                 '}';
     }
+
+
 }
