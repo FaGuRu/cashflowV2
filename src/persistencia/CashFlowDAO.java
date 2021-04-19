@@ -18,8 +18,11 @@ import java.util.List;
 public class CashFlowDAO {
     private static SessionFactory factory;
     private static ServiceRegistry serviceRegistry;
+    private Connection connection = null;
 
     public CashFlowDAO(String manejador) {
+        PGConnection conector = PGConnection.getInstance();
+        connection = conector.getConnection();
         System.err.println("Iniciando");
         try {
             Configuration configuration = new Configuration();
@@ -72,7 +75,7 @@ public class CashFlowDAO {
                 "where type = 'Entrada' and EXTRACT(MONTH FROM date) ='" + numberMonth + "'\n"+
                 "GROUP BY concept";
 
-        Connection connection = SQLConnection.getConnection();
+
         List<PrintableFlow> Flows = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -94,6 +97,7 @@ public class CashFlowDAO {
         }
 
         System.out.println(Flows);
+
         return Flows;
     }
 
@@ -110,7 +114,7 @@ public class CashFlowDAO {
                 "GROUP BY category.classification";
 
 
-        Connection connection = SQLConnection.getConnection();
+
         List<PrintableFlow> Flows = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -132,6 +136,7 @@ public class CashFlowDAO {
         }
 
         System.out.println(Flows);
+
         return Flows;
     }
 

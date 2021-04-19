@@ -413,7 +413,7 @@ public class Controller_Report implements Initializable {
                 actualizarTabla();
             }
         });
-        actualizarTabla();
+
     }
 
     public void setUserLogged(String name, String last_name, String role){

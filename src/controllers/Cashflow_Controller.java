@@ -185,7 +185,11 @@ public class Cashflow_Controller implements Initializable {
         this.name = name;
         this.last_name = last_name;
         this.role = role;
-        if(this.role != "admin"){
+       // System.out.println("el rol es" + this.role);
+        if(this.role.equals("admin")){
+            informes_button.setVisible(true);
+            informes_button.setDisable(false);
+        }else {
             informes_button.setVisible(false);
             informes_button.setDisable(true);
         }
