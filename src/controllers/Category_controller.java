@@ -286,7 +286,10 @@ public class Category_controller implements Initializable {
         this.name = name;
         this.last_name = last_name;
         this.role = role;
-        if(this.role != "admin"){
+        if(this.role.equals("admin")){
+            informes_button.setVisible(true);
+            informes_button.setDisable(false);
+        }else {
             informes_button.setVisible(false);
             informes_button.setDisable(true);
         }

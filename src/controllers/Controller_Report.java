@@ -413,7 +413,7 @@ public class Controller_Report implements Initializable {
                 actualizarTabla();
             }
         });
-        actualizarTabla();
+
     }
 
     public void setUserLogged(String name, String last_name, String role){
@@ -558,8 +558,10 @@ public class Controller_Report implements Initializable {
         semana3_cashflow_entrada_column.setCellValueFactory(new PropertyValueFactory<>("week3"));
         semana4_cashflow_entrada_column.setCellValueFactory(new PropertyValueFactory<>("week4"));
         semana5_cashflow_entrada_column.setCellValueFactory(new PropertyValueFactory<>("week5"));
-        final_cashflow_entrada_column.setCellValueFactory(new PropertyValueFactory<>("suma"));
+        final_cashflow_entrada_column.setCellValueFactory(new PropertyValueFactory<>("total"));
 
+        cashflow_entrada_table.getColumns().addAll(descripcion_entrada_column,semana1_cashflow_entrada_column,semana2_cashflow_entrada_column,semana3_cashflow_entrada_column,semana4_cashflow_entrada_column,semana5_cashflow_entrada_column,final_cashflow_entrada_column);
+        cashflow_salida_table.getColumns().addAll(descripcion_column,semana1_cashflow_salida_column,semana2_cashflow_salida_column,semana3_cashflow_salida_column,semana4_cashflow_salida_column,semana5_cashflow_salida_column,total_cashflow_salida_column);
         cashflow_salida_table.setItems(FXCollections.observableList(lista_salida));
         cashflow_entrada_table.setItems(FXCollections.observableList(lista_entrada));
 

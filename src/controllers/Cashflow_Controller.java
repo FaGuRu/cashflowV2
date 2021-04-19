@@ -36,6 +36,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -184,7 +185,11 @@ public class Cashflow_Controller implements Initializable {
         this.name = name;
         this.last_name = last_name;
         this.role = role;
-        if(this.role != "admin"){
+       // System.out.println("el rol es" + this.role);
+        if(this.role.equals("admin")){
+            informes_button.setVisible(true);
+            informes_button.setDisable(false);
+        }else {
             informes_button.setVisible(false);
             informes_button.setDisable(true);
         }
@@ -199,7 +204,10 @@ public class Cashflow_Controller implements Initializable {
         Category category = menu_categorias.getValue();
         String concept = input_descripcion.getText();
         int cantidad = Integer.valueOf(input_cantidad.getText());
-        CashFlow cashflow_to_save = new CashFlow(type, concept, cantidad, date, category);
+        Calendar calendario=Calendar.getInstance();
+        calendario.setTime(date);
+        int week_num= calendario.WEEK_OF_MONTH;
+        CashFlow cashflow_to_save = new CashFlow(type, concept, cantidad, date, category,week_num);
         cashflow_to_save.toString();
         cashFlowDAO.addCashFlow(cashflow_to_save);
         actualizarTabla();

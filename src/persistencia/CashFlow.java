@@ -12,19 +12,18 @@ public class CashFlow {
     float amount;
     Date date;
     Category category;
-    int weekNumber;
+    int week_num;
 
 
-    public CashFlow(String type, String concept, float amount, Date date, Category category) {
+    public CashFlow(String type, String concept, float amount, Date date, Category category, int week_num) {
         this.type = type;
         this.concept = concept;
         this.amount = amount;
         this.date = date;
         this.category = category;
-        Calendar calendario=Calendar.getInstance();
-        calendario.setTime(date);
-        weekNumber= calendario.WEEK_OF_MONTH;
+        this.week_num = week_num;
     }
+
 
     public CashFlow() {
     }
@@ -77,12 +76,12 @@ public class CashFlow {
         this.category = category;
     }
 
-    public int getWeekNumber() {
-        return weekNumber;
+    public int getWeek_num() {
+        return week_num;
     }
 
-    public void setWeekNumber(int weekNumber) {
-        this.weekNumber = weekNumber;
+    public void setWeek_num(int week_num) {
+        this.week_num = week_num;
     }
 
     @Override
@@ -94,7 +93,7 @@ public class CashFlow {
                 ", amount=" + amount +
                 ", date=" + date +
                 ", category=" + category +
-                ", weekNumber=" + weekNumber +
+                ", weekNumber=" + week_num +
                 '}';
     }
 
