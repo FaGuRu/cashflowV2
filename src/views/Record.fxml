@@ -58,6 +58,11 @@
                         <Font name="SansSerif Regular" size="18.0" />
                     </font>
                 </Button>
+                <Button fx:id="informes_button" alignment="CENTER_RIGHT" layoutX="21.0" layoutY="195.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-color: transparent;" text="Informe" textFill="#4c3c2c">
+                    <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                    </font>
+                </Button>
                 <Text fill="#756559" layoutX="5.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administración">
                     <font>
                         <Font name="SansSerif Bold" size="18.0" />

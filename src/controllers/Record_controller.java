@@ -45,6 +45,9 @@ public class Record_controller implements Initializable {
     private Button cashflow_button;
 
     @FXML
+    private Button informes_button;
+
+    @FXML
     private Button guardar_por_cobrar_button;
 
     @FXML
@@ -79,7 +82,7 @@ public class Record_controller implements Initializable {
 
     @FXML
     private TextField monto_por_cobrar;
-    //String type, int week_num, java.sql.Date month, String company_name, float amount
+
     @FXML
     void bancos_OnMouseClicked(MouseEvent event) {
         RecordDAO dao = new RecordDAO("hibernateSQL.cfg.xml");
@@ -87,7 +90,7 @@ public class Record_controller implements Initializable {
         String razon_social = razon_social_bancos.getText();
         int cantidad = Integer.valueOf(monto_bancos.getText());
         Date date = Date.valueOf(String.valueOf(LocalDate.now()));
-        Record record = new Record("Bancos", num_semana,date,razon_social,cantidad);
+        Record record = new Record("Bancos",num_semana, date, razon_social, cantidad );
         dao.addRecord(record);
     }
 
@@ -98,7 +101,7 @@ public class Record_controller implements Initializable {
         String razon_social = razon_social_por_cobrar.getText();
         int cantidad = Integer.valueOf(monto_por_cobrar.getText());
         Date date = Date.valueOf(String.valueOf(LocalDate.now()));
-        Record record = new Record("Por cobrar", num_semana,date,razon_social,cantidad);
+        Record record = new Record("Por Cobrar",num_semana, date, razon_social, cantidad );
         dao.addRecord(record);
     }
 
@@ -109,7 +112,7 @@ public class Record_controller implements Initializable {
         String razon_social = razon_social_por_pagar.getText();
         int cantidad = Integer.valueOf(monto_por_pagar.getText());
         Date date = Date.valueOf(String.valueOf(LocalDate.now()));
-        Record record = new Record("Por pagar", num_semana,date,razon_social,cantidad);
+        Record record = new Record("Por Pagar",num_semana, date, razon_social, cantidad );
         dao.addRecord(record);
 
     }
@@ -119,6 +122,7 @@ public class Record_controller implements Initializable {
             reportes_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/reports_icon.png"))));
             cashflow_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/cashflow_icon.png"))));
             categorias_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/tag_icon.png"))));
+            informes_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/report_icon.png"))));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -142,8 +146,22 @@ public class Record_controller implements Initializable {
                 try {
                     Main.setFXML("category", "CashFlow - Categorías");
                     FXMLLoader loader = Main.getLoader();
-                    Category_controller controller = loader.getController();
+                    Record_controller controller = loader.getController();
                     controller.setUserLogged(name, last_name);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        informes_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    Main.setFXML("Report", "CashFlow - Informes");
+                    FXMLLoader loader = Main.getLoader();
+                    Controller_Report controller = loader.getController();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

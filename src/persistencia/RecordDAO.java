@@ -1,5 +1,6 @@
 package persistencia;
 
+import com.sun.javafx.scene.web.Printable;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -52,24 +53,31 @@ public class RecordDAO {
         return empList1;
     }
 
-    public List getMonthRecord(int numberMonth)
+    public List getMonthRecord(int numberMonth, String _type)
     {
-        String sql = "SELECT id, type, week, month, company_name, amount FROM record\n"+
-                "WHERE MONTH(month)="+numberMonth;
+        String sql = "SELECT company_name,\n"+
+                "SUM(CASE WHEN week_num=1 THEN Amount END) as week1,\n"+
+                "SUM(CASE WHEN week_num=2 THEN Amount END) as week2,\n"+
+                "SUM(CASE WHEN week_num=3 THEN Amount END) as week3,\n"+
+                "SUM(CASE WHEN week_num=4 THEN Amount END) as week4,\n"+
+                "SUM(CASE WHEN week_num=5 THEN Amount END) as week5\n"+
+                "FROM record\n"+
+                "WHERE type="+_type +"AND MONTH(month)="+numberMonth+"\n"+
+                "GROUP BY company_name\n";
 
         Connection connection = SQLConnection.getConnection();
-        List<Record> Records = new ArrayList<>();
+        List<PrintableRecord> Records = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet results = statement.executeQuery();
             while (results.next()) {
-                int id = results.getInt(1);
-                String type = results.getString(2);
-                int week = results.getInt(3);
-                Date month = results.getDate(4);
-                String companyName = results.getString(5);
-                float amount = results.getFloat(6);
-                Record record = new Record(id, type, week, month, companyName, amount);
+                String company_name = results.getString(1);
+                float week1 = results.getFloat(2);
+                float week2 = results.getFloat(3);
+                float week3 = results.getFloat(4);
+                float week4 = results.getFloat(5);
+                float week5 = results.getFloat(6);
+                PrintableRecord record = new PrintableRecord(company_name,week1,week2,week3,week4,week5);
                 Records.add(record);
             }
 
@@ -82,6 +90,8 @@ public class RecordDAO {
         return Records;
 
     }
+
+
 
 
 
