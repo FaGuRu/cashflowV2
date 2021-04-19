@@ -13,7 +13,7 @@ public class SQLConnection {
                 "jdbc:sqlserver://localhost:1433;"
                         + "database=cashflow;"
                         + "user=sa;"
-                        + "password=Sword0Shield155;"
+                        + "password=admin;"
                 ;
 
         try{

@@ -35,6 +35,7 @@ public class Category_controller implements Initializable {
     private CategoryDAO categoryDAO = new CategoryDAO("hibernatePostgre.cfg.xml");
     private String name;
     private String last_name;
+    private String role;
     private Image add_img = new Image(new FileInputStream("src/assets/icons/add_category_icon.png"));
     private Category category_to_update;
     private Category category_to_delete;
@@ -171,7 +172,7 @@ public class Category_controller implements Initializable {
                     Main.setFXML("cashflow","CashFlow - Flujo de Efectivo");
                     FXMLLoader loader = Main.getLoader();
                     Cashflow_Controller controller = loader.getController();
-                    controller.setUserLogged(name, last_name);
+                    controller.setUserLogged(name, last_name, role);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -185,7 +186,7 @@ public class Category_controller implements Initializable {
                     Main.setFXML("Record", "CashFlow - Indicadores de dinero");
                     FXMLLoader loader = Main.getLoader();
                     Record_controller controller = loader.getController();
-                    controller.setUserLogged(name, last_name);
+                    controller.setUserLogged(name, last_name, role);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -200,7 +201,7 @@ public class Category_controller implements Initializable {
                     Main.setFXML("Report", "CashFlow - Informes");
                     FXMLLoader loader = Main.getLoader();
                     Controller_Report controller = loader.getController();
-
+                    controller.setUserLogged(name, last_name, role);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -281,9 +282,14 @@ public class Category_controller implements Initializable {
 
     }
 
-    public void setUserLogged(String name, String last_name){
+    public void setUserLogged(String name, String last_name, String role){
         this.name = name;
         this.last_name = last_name;
+        this.role = role;
+        if(this.role != "admin"){
+            informes_button.setVisible(false);
+            informes_button.setDisable(true);
+        }
         nombre_completo_text.setText(this.name + " " + this.last_name);
         iniciales_text.setText(String.valueOf(this.name.charAt(0)) + this.last_name.charAt(0));
     }

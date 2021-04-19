@@ -255,6 +255,43 @@
                         <TableColumn fx:id="final_bancos_column" prefWidth="110.0" text="Final" />
                     </columns>
                   </TableView>
+                  <TableView fx:id="cashflow_salida_table" layoutX="10.0" layoutY="914.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../assets/styles/tabla_categorias.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                     <columns>
+                        <TableColumn fx:id="descripcion_column" prefWidth="200.0" />
+                        <TableColumn fx:id="semana1_cashflow_salida_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana2_cashflow_salida_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana3_cashflow_salida_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana4_cashflow_salida_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana5_cashflow_salida_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="total_cashflow_salida_column" prefWidth="110.0" text="Final" />
+                     </columns>
+                  </TableView>
+                  <Text fill="#4c3c2c" layoutX="10.0" layoutY="883.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flujo de efectivo" wrappingWidth="144.94451904296875" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#4c3c2c" layoutX="10.0" layoutY="905.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salida" wrappingWidth="144.94451904296875" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="cashflow_entrada_table" layoutX="20.0" layoutY="1221.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../assets/styles/tabla_categorias.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                     <columns>
+                        <TableColumn fx:id="descripcion_entrada_column" prefWidth="200.0" />
+                        <TableColumn fx:id="semana1_cashflow_entrada_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana2_cashflow_entrada_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana3_cashflow_entrada_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana4_cashflow_entrada_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana4_cashflow_entrada_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="final_cashflow_entrada_column" prefWidth="110.0" text="Final" />
+                     </columns>
+                  </TableView>
+                  <Text fill="#4c3c2c" layoutX="20.0" layoutY="1203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entrada" wrappingWidth="144.94451904296875">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
         </content>
