@@ -283,7 +283,7 @@
                         <TableColumn fx:id="semana2_cashflow_entrada_column" prefWidth="110.0" text="Semana" />
                         <TableColumn fx:id="semana3_cashflow_entrada_column" prefWidth="110.0" text="Semana" />
                         <TableColumn fx:id="semana4_cashflow_entrada_column" prefWidth="110.0" text="Semana" />
-                        <TableColumn fx:id="semana4_cashflow_entrada_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana5_cashflow_entrada_column" prefWidth="110.0" text="Semana" />
                         <TableColumn fx:id="final_cashflow_entrada_column" prefWidth="110.0" text="Final" />
                      </columns>
                   </TableView>
