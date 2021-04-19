@@ -9,7 +9,7 @@ public class SQLConnection {
     private static Connection connection = null;
 
     private SQLConnection(){
-        String url = "jdbc:sqlserver://localhost:1433;user=sa;password=pokemon3";
+        String url = "jdbc:sqlserver://localhost:1433;user=sa;password=admin";
 
         try{
             connection = DriverManager.getConnection(url);

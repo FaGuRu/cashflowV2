@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller_Report">
+    <top>
+        <AnchorPane prefHeight="86.0" prefWidth="1100.0" style="-fx-background-color: #392213;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="83.0" fitWidth="139.0" layoutX="32.0">
+                    <image>
+                        <Image url="@../assets/images/logo_sin_texto.png" />
+                    </image>
+                </ImageView>
+                <Circle fill="#decaba" layoutX="899.0" layoutY="46.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                <Text fx:id="inciales_text" layoutX="887.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                    <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                    </font></Text>
+                <Text fx:id="nombre_completo_text" fill="WHITE" layoutX="943.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                    <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </top>
+    <left>
+        <AnchorPane prefHeight="713.0" prefWidth="200.0" style="-fx-background-color: decaba;" BorderPane.alignment="CENTER">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#766559" height="50.0" layoutY="195.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0">
+                    <effect>
+                        <Reflection bottomOpacity="0.22" fraction="0.14" topOffset="-1.0" topOpacity="0.76" />
+                    </effect>
+                </Rectangle>
+                <Button fx:id="categorias_button" alignment="CENTER_RIGHT" layoutX="21.0" layoutY="142.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-color: transparent;" text="Categorías" textFill="#4c3c2c">
+                    <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                    </font>
+                </Button>
+                <Button fx:id="reportes_button" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="88.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="132.0" style="-fx-background-color: transparent;" text="Reportes" textFill="#4c3c2c">
+                    <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                    </font>
+                </Button>
+                <Button fx:id="cashflow_button" alignment="CENTER_RIGHT" focusTraversable="false" layoutY="32.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="178.0" style="-fx-background-color: transparent;" text="Flujo de dinero" textFill="#4c3c2c">
+                    <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                    </font>
+                </Button>
+            <Button fx:id="informes_button" alignment="CENTER_RIGHT" layoutX="19.0" layoutY="195.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="165.0" style="-fx-background-color: transparent;" text="Informe" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="18.0" />
+               </font>
+            </Button>
+                <Text fill="#756559" layoutX="5.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administración">
+                    <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </left>
+   <center>
+      <ScrollPane hmax="10.0" prefHeight="200.0" prefWidth="200.0" vmax="10.0" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1590.0" prefWidth="884.0">
+               <children>
+                  <Text fill="#4c3c2c" layoutX="10.0" layoutY="-929.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cuentas Por Cobrar" wrappingWidth="144.94451904296875" y="1000.0" AnchorPane.bottomAnchor="1516.4" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="59.0">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="tabla_por_cobrar" layoutY="82.0" prefHeight="200.0" prefWidth="864.0" stylesheets="@../assets/styles/tabla_categorias.css">
+                     <columns>
+                        <TableColumn fx:id="razon_social_column" prefWidth="200.0" />
+                        <TableColumn fx:id="semana1_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana2_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana3_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana4_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana5_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="final_column" prefWidth="110.0" text="Final" />
+                     </columns>
+                  </TableView>
+                  <Line endX="671.7667236328125" fill="#766559" layoutX="202.89999389648438" layoutY="342.0" startX="-192.39999389648438" stroke="#766559" AnchorPane.leftAnchor="10.0" />
+                  <Text fill="#4c3c2c" layoutX="12.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total cuentas por cobrar" wrappingWidth="170.5445556640625">
+                     <font>
+                        <Font name="SansSerif Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_por_cobrar_semana_1" layoutX="209.0" layoutY="329.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.13665771484375">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_por_cobrar_semana_2" layoutX="325.0" layoutY="333.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_por_cobrar_semana_3" layoutX="435.0" layoutY="331.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_por_cobrar_semana_4" layoutX="543.0" layoutY="326.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_por_cobrar_semana_5" layoutX="653.0" layoutY="329.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_por_cobrar_final" layoutX="767.0" layoutY="327.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <MenuButton fx:id="meses_menu" layoutX="700.0" layoutY="25.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="135.0" text="Mes">
+                     <items>
+                        <MenuItem fx:id="enero_button" mnemonicParsing="false" text="Enero" />
+                        <MenuItem fx:id="febrero_button" mnemonicParsing="false" text="Febrero" />
+                        <MenuItem fx:id="marzo_button" mnemonicParsing="false" text="Marzo" />
+                        <MenuItem fx:id="abril_button" mnemonicParsing="false" text="Abril" />
+                        <MenuItem fx:id="mayo_button" mnemonicParsing="false" text="Mayo" />
+                        <MenuItem fx:id="junio_button" mnemonicParsing="false" text="Junio" />
+                        <MenuItem fx:id="julio_button" mnemonicParsing="false" text="Julio" />
+                        <MenuItem fx:id="agosto_button" mnemonicParsing="false" text="Agosto" />
+                        <MenuItem fx:id="septiembre_button" mnemonicParsing="false" text="Septiembre" />
+                        <MenuItem fx:id="octubre_button" mnemonicParsing="false" text="Octubre" />
+                        <MenuItem fx:id="noviembre_button" mnemonicParsing="false" text="Noviembre" />
+                        <MenuItem fx:id="diciembre_button" mnemonicParsing="false" text="Diciembre" />
+                     </items>
+                     <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                     </font>
+                  </MenuButton>
+                  <TableView fx:id="tabla_por_pagar" layoutX="-35.0" layoutY="363.0" prefHeight="200.0" prefWidth="864.0" stylesheets="@../assets/styles/tabla_categorias.css" AnchorPane.leftAnchor="10.0">
+                     <columns>
+                        <TableColumn fx:id="razon_social_por_pagar_column" prefWidth="200.0" />
+                        <TableColumn fx:id="semana1_por_pagar_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana2_por_pagar_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana3_por_pagar_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana4_por_pagar_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana5_por_pagar_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="final_por_pagar_column" prefWidth="110.0" text="Final" />
+                     </columns>
+                  </TableView>
+                  <Text fill="#4c3c2c" layoutX="10.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cuentas por Pagar" wrappingWidth="144.94451904296875" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#4c3c2c" layoutX="10.0" layoutY="578.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total cuentas por pagar" wrappingWidth="144.94451904296875" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="SansSerif Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_por_pagar_semana_1" layoutX="203.0" layoutY="580.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.13665771484375">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_por_pagar_semana_2" layoutX="330.0" layoutY="580.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Line endX="671.7667236328125" fill="#766559" layoutX="203.89999389648438" layoutY="589.0" startX="-192.39999389648438" stroke="#766559" />
+                  <Text fx:id="total_por_pagar_semana_3" layoutX="442.0" layoutY="580.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_por_pagar_semana_4" layoutX="552.0" layoutY="580.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_por_pagar_semana_5" layoutX="663.0" layoutY="580.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_por_pagar_final" layoutX="777.0" layoutY="580.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#4c3c2c" layoutX="45.0" layoutY="609.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bancos" wrappingWidth="144.94451904296875" AnchorPane.leftAnchor="10.0">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#4c3c2c" layoutX="11.0" layoutY="850.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total bancos" wrappingWidth="144.94451904296875">
+                     <font>
+                        <Font name="SansSerif Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_bancos_numero1" layoutX="204.0" layoutY="852.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.13665771484375">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_bancos_semana_2" layoutX="331.0" layoutY="852.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Line endX="671.7667236328125" fill="#766559" layoutX="204.89999389648438" layoutY="861.0" startX="-192.39999389648438" stroke="#766559" />
+                  <Text fx:id="total_bancos_semana_3" layoutX="443.0" layoutY="852.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_bancos_semana_4" layoutX="553.0" layoutY="852.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_bancos_semana_5" layoutX="664.0" layoutY="852.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="total_bancos_final" layoutX="778.0" layoutY="852.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="bancos_table" layoutX="158.0" layoutY="627.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../assets/styles/tabla_categorias.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                    <columns>
+                      <TableColumn fx:id="razon_social_bancos_column" prefWidth="200.0" />
+                      <TableColumn fx:id="semana1_bancos_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana2_bancos_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana3_bancos_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="semana4_bancos_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="column5_bancos_column" prefWidth="110.0" text="Semana" />
+                        <TableColumn fx:id="final_bancos_column" prefWidth="110.0" text="Final" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </center>
+</BorderPane>
