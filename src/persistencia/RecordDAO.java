@@ -56,10 +56,12 @@ public class RecordDAO {
         return empList1;
     }
 
-    public List getMonthRecord(int numberMonth)
+    public List getMonthRecord(int numberMonth,int week_num, String _type)
     {
-        String sql = "SELECT id, type, week, month, company_name, amount FROM record\n"+
-                "WHERE MONTH(month)="+numberMonth;
+        String sql = "SELECT id, week_num, type, month, company_name, amount FROM record\n"+
+                "WHERE week_num ="+ week_num +"AND MONTH(month)="+ numberMonth + "AND type="+ _type+"\n"+
+                "ORDER BY company_name";
+
 
         Connection connection = SQLConnection.getConnection();
         List<Record> Records = new ArrayList<>();
@@ -86,6 +88,8 @@ public class RecordDAO {
         return Records;
 
     }
+
+
 
 
 
