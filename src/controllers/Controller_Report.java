@@ -14,9 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import org.hibernate.type.IntegerType;
 import org.hibernate.type.descriptor.java.BinaryStreamImpl;
-import persistencia.PrintableRecord;
-import persistencia.Record;
-import persistencia.RecordDAO;
+import persistencia.*;
 import sample.Main;
 
 import java.awt.print.Printable;
@@ -29,8 +27,9 @@ import java.util.ResourceBundle;
 
 public class Controller_Report implements Initializable {
 
-   private String name;
+    private String name;
     private String last_name;
+    private String role;
     private int mes_seleccionado;
     @FXML
     private Text inciales_text;
@@ -215,8 +214,58 @@ public class Controller_Report implements Initializable {
     @FXML
     private TableColumn<PrintableRecord, ?> final_bancos_column;
 
+    @FXML
+    private TableView<PrintableFlow> cashflow_salida_table;
+
+    @FXML
+    private TableColumn<PrintableFlow, ?> descripcion_column;
+
+    @FXML
+    private TableColumn<PrintableFlow, ?> semana1_cashflow_salida_column;
+
+    @FXML
+    private TableColumn<PrintableFlow, ?> semana2_cashflow_salida_column;
+
+    @FXML
+    private TableColumn<PrintableFlow, ?> semana3_cashflow_salida_column;
+
+    @FXML
+    private TableColumn<PrintableFlow, ?> semana4_cashflow_salida_column;
+
+    @FXML
+    private TableColumn<PrintableFlow, ?> semana5_cashflow_salida_column;
+
+    @FXML
+    private TableColumn<PrintableFlow, ?> total_cashflow_salida_column;
+
+    @FXML
+    private TableView<PrintableFlow> cashflow_entrada_table;
+
+    @FXML
+    private TableColumn<PrintableFlow, ?> descripcion_entrada_column;
+
+    @FXML
+    private TableColumn<PrintableFlow, ?> semana1_cashflow_entrada_column;
+
+    @FXML
+    private TableColumn<PrintableFlow, ?> semana2_cashflow_entrada_column;
+
+    @FXML
+    private TableColumn<PrintableFlow, ?> semana3_cashflow_entrada_column;
+
+    @FXML
+    private TableColumn<PrintableFlow, ?> semana4_cashflow_entrada_column;
+
+    @FXML
+    private TableColumn<PrintableFlow,?> semana5_cashflow_entrada_column;
+
+    @FXML
+    private TableColumn<PrintableFlow, ?> final_cashflow_entrada_column;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         try {
             reportes_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/reports_icon.png"))));
             cashflow_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/cashflow_icon.png"))));
@@ -232,7 +281,7 @@ public class Controller_Report implements Initializable {
                     Main.setFXML("Cashflow", "CashFlow - Flujo de dinero");
                     FXMLLoader loader = Main.getLoader();
                     Cashflow_Controller controller = loader.getController();
-                    controller.setUserLogged(name, last_name);
+                    controller.setUserLogged(name, last_name, role);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -247,7 +296,7 @@ public class Controller_Report implements Initializable {
                     Main.setFXML("Category", "CashFlow - Categorías");
                     FXMLLoader loader = Main.getLoader();
                     Category_controller controller = loader.getController();
-                    controller.setUserLogged(name, last_name);
+                    controller.setUserLogged(name, last_name, role);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -262,7 +311,7 @@ public class Controller_Report implements Initializable {
                     Main.setFXML("Record", "CashFlow - Indicadores de dinero");
                     FXMLLoader loader = Main.getLoader();
                     Record_controller controller = loader.getController();
-                    controller.setUserLogged(name, last_name);
+                    controller.setUserLogged(name, last_name, role);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -364,11 +413,13 @@ public class Controller_Report implements Initializable {
                 actualizarTabla();
             }
         });
+        actualizarTabla();
     }
 
-    public void setUserLogged(String name, String last_name){
+    public void setUserLogged(String name, String last_name, String role){
         this.name = name;
         this.last_name = last_name;
+        this.role = role;
         inciales_text.setText(String.valueOf(this.name.charAt(0)) + String.valueOf(this.last_name.charAt(0)));
         nombre_completo_text.setText(String.valueOf(name + " " + last_name));
     }
@@ -395,13 +446,14 @@ public class Controller_Report implements Initializable {
         int suma_sem5_bancos = 0;
         int suma_total_final_bancos = 0;
         //TABLA POR COBRAR
-        RecordDAO dao = new RecordDAO("hibernateSQL.cfg.xml");
+        RecordDAO recordDAO = new RecordDAO("hibernateSQL.cfg.xml");
+        CashFlowDAO cashFlowDAO = new CashFlowDAO("hibernatePostgre.cfg.xml");
         tabla_por_cobrar.getColumns().clear();
         bancos_table.getColumns().clear();
         tabla_por_pagar.getColumns().clear();
-        List<PrintableRecord> lista_por_cobrar = dao.getMonthRecord(mes_seleccionado, "Por Cobrar");
-        List<PrintableRecord> lista_por_pagar = dao.getMonthRecord(mes_seleccionado, "Por Pagar");
-        List<PrintableRecord> lista_bancos = dao.getMonthRecord(mes_seleccionado, "Bancos");
+        List<PrintableRecord> lista_por_cobrar = recordDAO.getMonthRecord(mes_seleccionado, "Por Cobrar");
+        List<PrintableRecord> lista_por_pagar = recordDAO.getMonthRecord(mes_seleccionado, "Por Pagar");
+        List<PrintableRecord> lista_bancos = recordDAO.getMonthRecord(mes_seleccionado, "Bancos");
 
         razon_social_column.setCellValueFactory(new PropertyValueFactory<>("companyName"));
         semana1_column.setCellValueFactory(new PropertyValueFactory<>("week1"));
@@ -484,6 +536,32 @@ public class Controller_Report implements Initializable {
         total_bancos_semana_4.setText(String.valueOf(suma_sem4_por_pagar));
         total_bancos_semana_5.setText(String.valueOf(suma_sem5_por_pagar));
         total_bancos_final.setText(String.valueOf(suma_total_final_porpagar));
+
+        //TABLAS DE CASHFLOW
+        List<PrintableFlow> lista_salida = cashFlowDAO.getCashFlowSalida(mes_seleccionado);
+        List<PrintableFlow> lista_entrada = cashFlowDAO.getCashFlowEntrada(mes_seleccionado);
+
+        cashflow_salida_table.getColumns().clear();
+        cashflow_entrada_table.getColumns().clear();
+
+        descripcion_column.setCellValueFactory(new PropertyValueFactory<>("name"));
+        semana1_cashflow_salida_column.setCellValueFactory(new PropertyValueFactory<>("week1"));
+        semana2_cashflow_salida_column.setCellValueFactory(new PropertyValueFactory<>("week2"));
+        semana3_cashflow_salida_column.setCellValueFactory(new PropertyValueFactory<>("week3"));
+        semana4_cashflow_salida_column.setCellValueFactory(new PropertyValueFactory<>("week4"));
+        semana5_cashflow_salida_column.setCellValueFactory(new PropertyValueFactory<>("week5"));
+        total_cashflow_salida_column.setCellValueFactory(new PropertyValueFactory<>("total"));
+
+        descripcion_entrada_column.setCellValueFactory(new PropertyValueFactory<>("name"));
+        semana1_cashflow_entrada_column.setCellValueFactory(new PropertyValueFactory<>("week1"));
+        semana2_cashflow_entrada_column.setCellValueFactory(new PropertyValueFactory<>("week2"));
+        semana3_cashflow_entrada_column.setCellValueFactory(new PropertyValueFactory<>("week3"));
+        semana4_cashflow_entrada_column.setCellValueFactory(new PropertyValueFactory<>("week4"));
+        semana5_cashflow_entrada_column.setCellValueFactory(new PropertyValueFactory<>("week5"));
+        final_cashflow_entrada_column.setCellValueFactory(new PropertyValueFactory<>("suma"));
+
+        cashflow_salida_table.setItems(FXCollections.observableList(lista_salida));
+        cashflow_entrada_table.setItems(FXCollections.observableList(lista_entrada));
 
 
     }
