@@ -58,6 +58,9 @@ public class Cashflow_Controller implements Initializable {
     private Button reportes_button;
 
     @FXML
+    private Button informes_button;
+
+    @FXML
     private TableView<CashFlow> content_table;
 
     @FXML
@@ -97,6 +100,7 @@ public class Cashflow_Controller implements Initializable {
             categorias_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/tag_icon.png"))));
             reportes_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/reports_icon.png"))));
             cashflow_button.setGraphic(new ImageView(new Image( new FileInputStream("src/assets/icons/cashflow_icon.png"))));
+            informes_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/report_icon.png"))));
             List<Category> lista_categorias = categoryDAO.getCategory();
             ObservableList<Category> lista_observable = FXCollections.observableList(lista_categorias);
             menu_categorias.setItems(lista_observable);
@@ -143,6 +147,22 @@ public class Cashflow_Controller implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
+        });
+
+        informes_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    Main.setFXML("Report", "CashFlow - Informes");
+                    FXMLLoader loader = Main.getLoader();
+                    Controller_Report controller = loader.getController();
+                    controller.setUserLogged(name, last_name);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
         //Textfield de solo número enteros

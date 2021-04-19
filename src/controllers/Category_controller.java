@@ -58,6 +58,9 @@ public class Category_controller implements Initializable {
     private Button flujo_de_dinero_button;
 
     @FXML
+    private Button informes_button;
+
+    @FXML
     private Text iniciales_text;
 
     @FXML
@@ -140,6 +143,7 @@ public class Category_controller implements Initializable {
         try {
             reportes_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/reports_icon.png"))));
             flujo_de_dinero_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/cashflow_icon.png"))));
+            informes_button.setGraphic(new ImageView(new Image(new FileInputStream("src/assets/icons/report_icon.png"))));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -182,6 +186,21 @@ public class Category_controller implements Initializable {
                     FXMLLoader loader = Main.getLoader();
                     Record_controller controller = loader.getController();
                     controller.setUserLogged(name, last_name);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        informes_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    Main.setFXML("Report", "CashFlow - Informes");
+                    FXMLLoader loader = Main.getLoader();
+                    Controller_Report controller = loader.getController();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
