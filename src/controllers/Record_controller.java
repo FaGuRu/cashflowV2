@@ -26,8 +26,9 @@ import java.util.Calendar;
 import java.util.ResourceBundle;
 
 public class Record_controller implements Initializable {
-    String name;
-    String last_name;
+    private String name;
+    private String last_name;
+    private String role;
 
     @FXML
     private Text inciales_text;
@@ -133,7 +134,7 @@ public class Record_controller implements Initializable {
                     Main.setFXML("cashflow","CashFlow - Flujo de Efectivo");
                     FXMLLoader loader = Main.getLoader();
                     Cashflow_Controller controller = loader.getController();
-                    controller.setUserLogged(name, last_name);
+                    controller.setUserLogged(name, last_name, role);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -147,7 +148,7 @@ public class Record_controller implements Initializable {
                     Main.setFXML("category", "CashFlow - Categorías");
                     FXMLLoader loader = Main.getLoader();
                     Record_controller controller = loader.getController();
-                    controller.setUserLogged(name, last_name);
+                    controller.setUserLogged(name, last_name, role);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -161,7 +162,7 @@ public class Record_controller implements Initializable {
                     Main.setFXML("Report", "CashFlow - Informes");
                     FXMLLoader loader = Main.getLoader();
                     Controller_Report controller = loader.getController();
-
+                    controller.setUserLogged(name, last_name, role);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -198,9 +199,14 @@ public class Record_controller implements Initializable {
     }
 
 
-    public void setUserLogged(String name, String last_name){
+    public void setUserLogged(String name, String last_name, String role){
+        this.role = role;
         this.name = name;
         this.last_name = last_name;
+        if(this.role != "admin"){
+            informes_button.setVisible(false);
+            informes_button.setDisable(true);
+        }
         inciales_text.setText(String.valueOf(this.name.charAt(0)) + this.last_name.charAt(0));
         nombre_completo_text.setText(this.name + " " + this.last_name);
     }

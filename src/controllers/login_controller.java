@@ -42,7 +42,7 @@ public class login_controller {
                 //Obtiene el controller de la vista de categorias para darle el usuario que se loggeo jeje
                 FXMLLoader loader = Main.getLoader();
                 Cashflow_Controller controller = loader.getController();
-                controller.setUserLogged(user.getName(), user.getLast_name());
+                controller.setUserLogged(user.getName(), user.getLast_name(), user.getRole());
 
 
             }else{

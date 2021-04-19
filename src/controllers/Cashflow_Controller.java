@@ -43,6 +43,7 @@ import java.util.ResourceBundle;
 public class Cashflow_Controller implements Initializable {
     private String name;
     private String last_name;
+    private String role;
     private String type;
     private CashFlowDAO cashFlowDAO = new CashFlowDAO("hibernatePostgre.cfg.xml");
     private CategoryDAO categoryDAO = new CategoryDAO("hibernatePostgre.cfg.xml");
@@ -112,7 +113,7 @@ public class Cashflow_Controller implements Initializable {
                         Main.setFXML("Record", "CashFlow - Indicadores de dinero");
                         FXMLLoader loader = Main.getLoader();
                         Record_controller controller = loader.getController();
-                        controller.setUserLogged(name, last_name);
+                        controller.setUserLogged(name, last_name, role);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -144,7 +145,7 @@ public class Cashflow_Controller implements Initializable {
                     Main.setFXML("category", "CashFlow - Categorías");
                     FXMLLoader loader = Main.getLoader();
                     Category_controller controller = loader.getController();
-                    controller.setUserLogged(name, last_name);
+                    controller.setUserLogged(name, last_name, role);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -158,7 +159,7 @@ public class Cashflow_Controller implements Initializable {
                     Main.setFXML("Report", "CashFlow - Informes");
                     FXMLLoader loader = Main.getLoader();
                     Controller_Report controller = loader.getController();
-                    controller.setUserLogged(name, last_name);
+                    controller.setUserLogged(name, last_name, role);
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -180,9 +181,14 @@ public class Cashflow_Controller implements Initializable {
     }
 
 
-    public void setUserLogged(String name, String last_name){
+    public void setUserLogged(String name, String last_name, String role){
         this.name = name;
         this.last_name = last_name;
+        this.role = role;
+        if(this.role != "admin"){
+            informes_button.setVisible(false);
+            informes_button.setDisable(true);
+        }
         inciales_text.setText(String.valueOf(this.name.charAt(0)) + String.valueOf(this.last_name.charAt(0)));
         nombre_completo_text.setText(this.name + " " + this.last_name);
     }
