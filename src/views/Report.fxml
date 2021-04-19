@@ -292,6 +292,76 @@
                         <Font name="SansSerif Bold" size="14.0" />
                      </font>
                   </Text>
+                  <Text fill="#4c3c2c" layoutX="12.0" layoutY="1475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Utilidad" wrappingWidth="170.5445556640625">
+                     <font>
+                        <Font name="SansSerif Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="text_diff_semana1" layoutX="220.0" layoutY="1475.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.13665771484375">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="text_diff_semana2" layoutX="335.0" layoutY="1475.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="text_diff_semana3" layoutX="446.0" layoutY="1475.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="text_diff_semana4" layoutX="554.0" layoutY="1475.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="text_diff_semana5" layoutX="665.0" layoutY="1475.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="text_diff_total" layoutX="771.0" layoutY="1475.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125" AnchorPane.rightAnchor="10.0">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#4c3c2c" layoutX="10.0" layoutY="1440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diferencia" wrappingWidth="144.94451904296875">
+                     <font>
+                        <Font name="SansSerif Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="text_marge_rentabilidad_semana1" layoutX="222.0" layoutY="1524.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.13665771484375">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="text_marge_rentabilidad_semana2" layoutX="337.0" layoutY="1524.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="text_marge_rentabilidad_semana3" layoutX="448.0" layoutY="1524.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="text_marge_rentabilidad_semana4" layoutX="556.0" layoutY="1524.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="text_marge_rentabilidad_semana5" layoutX="667.0" layoutY="1524.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="text_marge_rentabilidad_total" layoutX="773.0" layoutY="1524.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
         </content>
