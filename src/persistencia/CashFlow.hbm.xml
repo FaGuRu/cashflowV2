@@ -15,6 +15,7 @@
         <property name="concept" column="concept"/>
         <property name="amount" column="amount"/>
         <property name="date" column="date"/>
+        <property name="week_num" column="week_num"/>
 
         <many-to-one name="Category"  fetch="select">
             <column name="category" not-null="true"/>
