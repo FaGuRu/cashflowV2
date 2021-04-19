@@ -9,10 +9,15 @@ public class SQLConnection {
     private static Connection connection = null;
 
     private SQLConnection(){
-        String url = "jdbc:sqlserver://localhost:1433;user=sa;password=admin";
+        String connectionUrl =
+                "jdbc:sqlserver://localhost:1433;"
+                        + "database=cashflow;"
+                        + "user=sa;"
+                        + "password=Sword0Shield155;"
+                ;
 
         try{
-            connection = DriverManager.getConnection(url);
+            connection = DriverManager.getConnection(connectionUrl);
             System.out.println("Successful Connection = " + connection.getClass().getCanonicalName());
         }catch (SQLException e){
             System.out.println("Failed Connection: " + e.getMessage());

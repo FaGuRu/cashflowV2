@@ -62,7 +62,7 @@ public class RecordDAO {
                 "SUM(CASE WHEN week_num=4 THEN Amount END) as week4,\n"+
                 "SUM(CASE WHEN week_num=5 THEN Amount END) as week5\n"+
                 "FROM record\n"+
-                "WHERE type="+_type +"AND MONTH(month)="+numberMonth+"\n"+
+                "WHERE type= '"+_type +"' AND MONTH(month)= "+numberMonth+"\n"+
                 "GROUP BY company_name\n";
 
         Connection connection = SQLConnection.getConnection();
