@@ -262,6 +262,41 @@ public class Controller_Report implements Initializable {
     @FXML
     private TableColumn<PrintableFlow, ?> final_cashflow_entrada_column;
 
+    @FXML
+    private Text text_diff_semana1;
+
+    @FXML
+    private Text text_diff_semana2;
+
+    @FXML
+    private Text text_diff_semana3;
+
+    @FXML
+    private Text text_diff_semana4;
+
+    @FXML
+    private Text text_diff_semana5;
+
+    @FXML
+    private Text text_diff_total;
+
+    @FXML
+    private Text text_marge_rentabilidad_semana1;
+
+    @FXML
+    private Text text_marge_rentabilidad_semana2;
+
+    @FXML
+    private Text text_marge_rentabilidad_semana3;
+
+    @FXML
+    private Text text_marge_rentabilidad_semana4;
+
+    @FXML
+    private Text text_marge_rentabilidad_semana5;
+
+    @FXML
+    private Text text_marge_rentabilidad_total;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -564,7 +599,71 @@ public class Controller_Report implements Initializable {
         cashflow_salida_table.getColumns().addAll(descripcion_column,semana1_cashflow_salida_column,semana2_cashflow_salida_column,semana3_cashflow_salida_column,semana4_cashflow_salida_column,semana5_cashflow_salida_column,total_cashflow_salida_column);
         cashflow_salida_table.setItems(FXCollections.observableList(lista_salida));
         cashflow_entrada_table.setItems(FXCollections.observableList(lista_entrada));
+        /*
+        Calcular margen de rentabilidad (Margen porcentual)
+                (UTILIDAD / INGRESOS TOTALES) * 100
+         */
+        float suma_sem1_entrada = 0;
+        float suma_sem2_entrada = 0;
+        float suma_sem3_entrada = 0;
+        float suma_sem4_entrada = 0;
+        float suma_sem5_entrada = 0;
+        float suma_total_entrada = 0;
 
+        float suma_sem1_salida = 0;
+        float suma_sem2_salida = 0;
+        float suma_sem3_salida = 0;
+        float suma_sem4_salida = 0;
+        float suma_sem5_salida = 0;
+        float suma_total_salida = 0;
+
+
+        for (PrintableFlow flow: lista_salida) {
+            suma_sem1_salida = suma_sem1_salida + flow.getWeek1();
+            suma_sem2_salida = suma_sem2_salida + flow.getWeek2();
+            suma_sem3_salida = suma_sem3_salida + flow.getWeek3();
+            suma_sem4_salida = suma_sem4_salida + flow.getWeek4();
+            suma_sem5_salida = suma_sem5_salida + flow.getWeek5();
+            suma_total_entrada = suma_total_entrada + flow.getTotal();
+        }
+
+        for (PrintableFlow flow: lista_entrada) {
+            suma_sem1_entrada = suma_sem1_entrada + flow.getWeek1();
+            suma_sem2_entrada = suma_sem2_entrada + flow.getWeek2();
+            suma_sem3_entrada = suma_sem3_entrada + flow.getWeek3();
+            suma_sem4_entrada = suma_sem4_entrada + flow.getWeek4();
+            suma_sem5_entrada = suma_sem5_entrada + flow.getWeek5();
+            suma_total_entrada = suma_total_entrada + flow.getTotal();
+        }
+
+
+        float diff_semana1 = suma_sem1_entrada - suma_sem1_salida;
+        float diff_semana2 = suma_sem2_entrada - suma_sem2_salida;
+        float diff_semana3 = suma_sem3_entrada - suma_sem3_salida;
+        float diff_semana4 = suma_sem4_entrada - suma_sem4_salida;
+        float diff_semana5 = suma_sem5_entrada - suma_sem5_salida;
+        float diff_total = suma_total_entrada - suma_total_salida;
+
+        int margen_rentabilidad_sem1 = (int) ((diff_semana1 - suma_sem1_entrada) * 100);
+        int margen_rentabilidad_sem2 = (int)((diff_semana2 - suma_sem2_entrada) * 100);
+        int margen_rentabilidad_sem3 = (int)((diff_semana3 - suma_sem3_entrada) * 100);
+        int margen_rentabilidad_sem4 = (int) ((diff_semana4 - suma_sem4_entrada) * 100);
+        int margen_rentabilidad_sem5 = (int) ((diff_semana5 - suma_sem5_entrada) * 100);
+        int margen_rentabilidad_total = (int) ((diff_total - suma_total_entrada) * 100);
+
+        text_diff_semana1.setText(String.valueOf(diff_semana1));
+        text_diff_semana2.setText(String.valueOf(diff_semana2));
+        text_diff_semana3.setText(String.valueOf(diff_semana3));
+        text_diff_semana4.setText(String.valueOf(diff_semana4));
+        text_diff_semana5.setText(String.valueOf(diff_semana5));
+        text_diff_total.setText(String.valueOf(diff_total));
+
+        text_marge_rentabilidad_semana1.setText(String.valueOf(margen_rentabilidad_sem1));
+        text_marge_rentabilidad_semana2.setText(String.valueOf(margen_rentabilidad_sem2));
+        text_marge_rentabilidad_semana3.setText(String.valueOf(margen_rentabilidad_sem3));
+        text_marge_rentabilidad_semana4.setText(String.valueOf(margen_rentabilidad_sem4));
+        text_marge_rentabilidad_semana5.setText(String.valueOf(margen_rentabilidad_sem5));
+        text_marge_rentabilidad_total.setText(String.valueOf(margen_rentabilidad_total));
 
     }
 
