@@ -644,12 +644,12 @@ public class Controller_Report implements Initializable {
         float diff_semana5 = suma_sem5_entrada - suma_sem5_salida;
         float diff_total = suma_total_entrada - suma_total_salida;
 
-        int margen_rentabilidad_sem1 = (int) ((diff_semana1 - suma_sem1_entrada) * 100);
-        int margen_rentabilidad_sem2 = (int)((diff_semana2 - suma_sem2_entrada) * 100);
-        int margen_rentabilidad_sem3 = (int)((diff_semana3 - suma_sem3_entrada) * 100);
-        int margen_rentabilidad_sem4 = (int) ((diff_semana4 - suma_sem4_entrada) * 100);
-        int margen_rentabilidad_sem5 = (int) ((diff_semana5 - suma_sem5_entrada) * 100);
-        int margen_rentabilidad_total = (int) ((diff_total - suma_total_entrada) * 100);
+        int margen_rentabilidad_sem1 = (int) ((diff_semana1 / suma_sem1_entrada) * 100);
+        int margen_rentabilidad_sem2 = (int)((diff_semana2 / suma_sem2_entrada) * 100);
+        int margen_rentabilidad_sem3 = (int)((diff_semana3 / suma_sem3_entrada) * 100);
+        int margen_rentabilidad_sem4 = (int) ((diff_semana4 / suma_sem4_entrada) * 100);
+        int margen_rentabilidad_sem5 = (int) ((diff_semana5 / suma_sem5_entrada) * 100);
+        int margen_rentabilidad_total = (int) ((diff_total / suma_total_entrada) * 100);
 
         text_diff_semana1.setText(String.valueOf(diff_semana1));
         text_diff_semana2.setText(String.valueOf(diff_semana2));
@@ -658,12 +658,12 @@ public class Controller_Report implements Initializable {
         text_diff_semana5.setText(String.valueOf(diff_semana5));
         text_diff_total.setText(String.valueOf(diff_total));
 
-        text_marge_rentabilidad_semana1.setText(String.valueOf(margen_rentabilidad_sem1));
-        text_marge_rentabilidad_semana2.setText(String.valueOf(margen_rentabilidad_sem2));
-        text_marge_rentabilidad_semana3.setText(String.valueOf(margen_rentabilidad_sem3));
-        text_marge_rentabilidad_semana4.setText(String.valueOf(margen_rentabilidad_sem4));
-        text_marge_rentabilidad_semana5.setText(String.valueOf(margen_rentabilidad_sem5));
-        text_marge_rentabilidad_total.setText(String.valueOf(margen_rentabilidad_total));
+        text_marge_rentabilidad_semana1.setText(String.valueOf(margen_rentabilidad_sem1)+" %");
+        text_marge_rentabilidad_semana2.setText(String.valueOf(margen_rentabilidad_sem2)+" %");
+        text_marge_rentabilidad_semana3.setText(String.valueOf(margen_rentabilidad_sem3)+" %");
+        text_marge_rentabilidad_semana4.setText(String.valueOf(margen_rentabilidad_sem4)+" %");
+        text_marge_rentabilidad_semana5.setText(String.valueOf(margen_rentabilidad_sem5)+" %");
+        text_marge_rentabilidad_total.setText(String.valueOf(margen_rentabilidad_total)+" %");
 
     }
 

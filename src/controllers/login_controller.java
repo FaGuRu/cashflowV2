@@ -47,9 +47,15 @@ public class login_controller {
 
 
             }else{
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("La vista del usuario no administrador aún no se hace");
-                alert.show();
+                if(user.getRole().equals("df")){
+                    //Momentanea hasta que se haga la vista principal chida
+                    Main.setFXML("Cashflow", "CashFlow - Categorías");
+                    //Obtiene el controller de la vista de categorias para darle el usuario que se loggeo jeje
+                    FXMLLoader loader = Main.getLoader();
+                    //System.out.println(user.getRole());
+                    Cashflow_Controller controller = loader.getController();
+                    controller.setUserLogged(user.getName(), user.getLast_name(), user.getRole());
+                }
             }
 
 
