@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller_Report">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller_Report">
     <top>
         <AnchorPane prefHeight="86.0" prefWidth="1100.0" style="-fx-background-color: #392213;" BorderPane.alignment="CENTER">
             <children>
@@ -78,7 +78,7 @@
    <center>
       <ScrollPane hmax="10.0" prefHeight="200.0" prefWidth="200.0" vmax="10.0" BorderPane.alignment="CENTER">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1590.0" prefWidth="884.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1655.0" prefWidth="884.0">
                <children>
                   <Text fill="#4c3c2c" layoutX="10.0" layoutY="-929.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cuentas Por Cobrar" wrappingWidth="144.94451904296875" y="1000.0" AnchorPane.bottomAnchor="1516.4" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="59.0">
                      <font>
@@ -292,76 +292,134 @@
                         <Font name="SansSerif Bold" size="14.0" />
                      </font>
                   </Text>
-                  <Text fill="#4c3c2c" layoutX="12.0" layoutY="1475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Utilidad" wrappingWidth="170.5445556640625">
+                  <Text fill="#4c3c2c" layoutX="12.0" layoutY="1570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Utilidad" wrappingWidth="170.5445556640625">
                      <font>
                         <Font name="SansSerif Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fx:id="text_diff_semana1" layoutX="220.0" layoutY="1475.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.13665771484375">
+                  <Text fx:id="text_diff_semana1" layoutX="220.0" layoutY="1570.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.13665771484375">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Text>
-                  <Text fx:id="text_diff_semana2" layoutX="335.0" layoutY="1475.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                  <Text fx:id="text_diff_semana2" layoutX="335.0" layoutY="1570.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Text>
-                  <Text fx:id="text_diff_semana3" layoutX="446.0" layoutY="1475.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                  <Text fx:id="text_diff_semana3" layoutX="446.0" layoutY="1570.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Text>
-                  <Text fx:id="text_diff_semana4" layoutX="554.0" layoutY="1475.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                  <Text fx:id="text_diff_semana4" layoutX="554.0" layoutY="1570.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Text>
-                  <Text fx:id="text_diff_semana5" layoutX="665.0" layoutY="1475.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                  <Text fx:id="text_diff_semana5" layoutX="665.0" layoutY="1570.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Text>
-                  <Text fx:id="text_diff_total" layoutX="771.0" layoutY="1475.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125" AnchorPane.rightAnchor="10.0">
+                  <Text fx:id="text_diff_total" layoutX="779.0" layoutY="1570.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125" AnchorPane.rightAnchor="10.0633544921875">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Text>
-                  <Text fill="#4c3c2c" layoutX="10.0" layoutY="1440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diferencia" wrappingWidth="144.94451904296875">
+                  <Text fill="#4c3c2c" layoutX="10.0" layoutY="1535.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diferencia" wrappingWidth="144.94451904296875">
                      <font>
                         <Font name="SansSerif Bold" size="14.0" />
                      </font>
                   </Text>
-                  <Text fx:id="text_marge_rentabilidad_semana1" layoutX="222.0" layoutY="1524.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.13665771484375">
+                  <Text fx:id="text_marge_rentabilidad_semana1" layoutX="222.0" layoutY="1619.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="98.13665771484375">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Text>
-                  <Text fx:id="text_marge_rentabilidad_semana2" layoutX="337.0" layoutY="1524.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                  <Text fx:id="text_marge_rentabilidad_semana2" layoutX="337.0" layoutY="1619.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Text>
-                  <Text fx:id="text_marge_rentabilidad_semana3" layoutX="448.0" layoutY="1524.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                  <Text fx:id="text_marge_rentabilidad_semana3" layoutX="448.0" layoutY="1619.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Text>
-                  <Text fx:id="text_marge_rentabilidad_semana4" layoutX="556.0" layoutY="1524.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                  <Text fx:id="text_marge_rentabilidad_semana4" layoutX="556.0" layoutY="1619.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Text>
-                  <Text fx:id="text_marge_rentabilidad_semana5" layoutX="667.0" layoutY="1524.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                  <Text fx:id="text_marge_rentabilidad_semana5" layoutX="667.0" layoutY="1619.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Text>
-                  <Text fx:id="text_marge_rentabilidad_total" layoutX="773.0" layoutY="1524.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
+                  <Text fx:id="text_marge_rentabilidad_total" layoutX="773.0" layoutY="1619.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="94.9366455078125">
                      <font>
                         <Font name="SansSerif Regular" size="14.0" />
                      </font>
                   </Text>
+                  <Text fill="#4c3c2c" layoutX="16.0" layoutY="1505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total " wrappingWidth="170.5445556640625" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="1493.0">
+                     <font>
+                        <Font name="SansSerif Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="flow_total_semana1_entrada" layoutX="257.0" layoutY="1496.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+                  <Text fx:id="flow_total_semana2_entrada" layoutX="363.0" layoutY="1496.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+                  <Text fx:id="flow_total_semana3_entrada" layoutX="471.0" layoutY="1496.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+                  <Text fx:id="flow_total_semana4_entrada" layoutX="590.0" layoutY="1496.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+                  <Text fx:id="flow_total_semana5_entrada" layoutX="705.0" layoutY="1496.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+                  <Text fx:id="flow_total_entrada" layoutX="806.0" layoutY="1496.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+                  <Text fill="#4c3c2c" layoutX="14.0" layoutY="1153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total " wrappingWidth="170.5445556640625">
+                     <font>
+                        <Font name="SansSerif Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="flow_total_semana1_salida" layoutX="255.0" layoutY="1144.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+                  <Text fx:id="flow_total_semana2_salida" layoutX="361.0" layoutY="1144.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+                  <Text fx:id="flow_total_semana3_salida" layoutX="469.0" layoutY="1144.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+                  <Text fx:id="flow_total_semana4_salida" layoutX="588.0" layoutY="1144.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+                  <Text fx:id="flow_total_semana5_salida" layoutX="703.0" layoutY="1144.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+                  <Text fx:id="flow_total_salida" layoutX="804.0" layoutY="1144.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
                </children>
             </AnchorPane>
         </content>

@@ -298,6 +298,43 @@ public class Controller_Report implements Initializable {
     @FXML
     private Text text_marge_rentabilidad_total;
 
+
+    @FXML
+    private Text flow_total_semana1_entrada;
+
+    @FXML
+    private Text flow_total_semana2_entrada;
+
+    @FXML
+    private Text flow_total_semana3_entrada;
+
+    @FXML
+    private Text flow_total_semana4_entrada;
+
+    @FXML
+    private Text flow_total_semana5_entrada;
+
+    @FXML
+    private Text flow_total_entrada;
+
+    @FXML
+    private Text flow_total_semana1_salida;
+
+    @FXML
+    private Text flow_total_semana2_salida;
+
+    @FXML
+    private Text flow_total_semana3_salida;
+
+    @FXML
+    private Text flow_total_semana4_salida;
+
+    @FXML
+    private Text flow_total_semana5_salida;
+
+    @FXML
+    private Text flow_total_salida;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -624,7 +661,7 @@ public class Controller_Report implements Initializable {
             suma_sem3_salida = suma_sem3_salida + flow.getWeek3();
             suma_sem4_salida = suma_sem4_salida + flow.getWeek4();
             suma_sem5_salida = suma_sem5_salida + flow.getWeek5();
-            suma_total_entrada = suma_total_entrada + flow.getTotal();
+            suma_total_salida = suma_total_salida + flow.getTotal();
         }
 
         for (PrintableFlow flow: lista_entrada) {
@@ -664,6 +701,22 @@ public class Controller_Report implements Initializable {
         text_marge_rentabilidad_semana4.setText(String.valueOf(margen_rentabilidad_sem4)+" %");
         text_marge_rentabilidad_semana5.setText(String.valueOf(margen_rentabilidad_sem5)+" %");
         text_marge_rentabilidad_total.setText(String.valueOf(margen_rentabilidad_total)+" %");
+
+        flow_total_semana1_entrada.setText(String.valueOf(suma_sem1_entrada));
+        flow_total_semana2_entrada.setText(String.valueOf(suma_sem2_entrada));
+        flow_total_semana3_entrada.setText(String.valueOf(suma_sem3_entrada));
+        flow_total_semana4_entrada.setText(String.valueOf(suma_sem4_entrada));
+        flow_total_semana5_entrada.setText(String.valueOf(suma_sem5_entrada));
+        flow_total_entrada.setText(String.valueOf(suma_total_entrada));
+
+        flow_total_semana1_salida.setText(String.valueOf(suma_sem1_salida));
+        flow_total_semana2_salida.setText(String.valueOf(suma_sem2_salida));
+        flow_total_semana3_salida.setText(String.valueOf(suma_sem3_salida));
+        flow_total_semana4_salida.setText(String.valueOf(suma_sem4_salida));
+        flow_total_semana5_salida.setText(String.valueOf(suma_sem5_salida));
+        flow_total_salida.setText(String.valueOf(suma_total_salida));
+
+
 
     }
 
